@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://desqo32gyby16"]
+
+[ext_resource type="Script" uid="uid://dkm103ryikf8l" path="res://scripts/player.gd" id="1_4dohe"]
+[ext_resource type="Texture2D" uid="uid://dleqw3xv1jk8e" path="res://assets/sprites/elf_front.png" id="1_72ieh"]
+[ext_resource type="PackedScene" uid="uid://boy085ei800or" path="res://prefabs/star.tscn" id="2_r66lb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r66lb"]
+bg_color = Color(0.23921569, 0.23921569, 0.23921569, 0.7411765)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.17283267, 0.1728327, 0.17283252, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1txc5"]
+bg_color = Color(0, 0.7176471, 0.3764706, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r66lb"]
+height = 50.0
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_4dohe")
+projectile_prefab = ExtResource("2_r66lb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("1_72ieh")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(64, 8)
+offset_left = -32.0
+offset_top = -67.0
+offset_right = 32.0
+offset_bottom = -59.0
+theme_override_styles/background = SubResource("StyleBoxFlat_r66lb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1txc5")
+step = 10.0
+value = 100.0
+rounded = true
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 25)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -37)
+shape = SubResource("CapsuleShape2D_r66lb")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

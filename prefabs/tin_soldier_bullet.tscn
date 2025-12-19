@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://coehqg0pjtcps"]
+
+[ext_resource type="Script" uid="uid://cnkawsyogn4ru" path="res://scripts/projectiles/tin_soldier_bullet.gd" id="1_ne7vr"]
+[ext_resource type="Texture2D" uid="uid://iukekf4h2lv5" path="res://assets/sprites/bullet.png" id="1_rmr2p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ne7vr"]
+radius = 3.3333333
+height = 26.666666
+
+[node name="TinSoldierBullet" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ne7vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = ExtResource("1_rmr2p")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ne7vr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

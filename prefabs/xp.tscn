@@ -1,0 +1,173 @@
+[gd_scene load_steps=15 format=3 uid="uid://d4gvhpfi2x88n"]
+
+[ext_resource type="Script" uid="uid://bndkk14m3e24o" path="res://scripts/xp.gd" id="1_5crfm"]
+[ext_resource type="Texture2D" uid="uid://dqpj4eiso6pee" path="res://assets/sprites/xp.png" id="1_k4xjv"]
+[ext_resource type="FontFile" uid="uid://d323h10y7hdwm" path="res://assets/fonts/ARCADE_N.TTF" id="3_71srq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5crfm"]
+atlas = ExtResource("1_k4xjv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71srq"]
+atlas = ExtResource("1_k4xjv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xaee"]
+atlas = ExtResource("1_k4xjv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k06pt"]
+atlas = ExtResource("1_k4xjv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcjp2"]
+atlas = ExtResource("1_k4xjv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5lsiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5crfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71srq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xaee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k06pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcjp2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4xjv"]
+radius = 8.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5xaee"]
+font = ExtResource("3_71srq")
+font_size = 14
+font_color = Color(0.116025455, 0.60157734, 1.1551381e-06, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_71srq"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-23.0, -47.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_5xaee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-23.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k06pt"]
+_data = {
+&"RESET": SubResource("Animation_5xaee"),
+&"fade": SubResource("Animation_71srq")
+}
+
+[node name="XP" type="Node2D"]
+script = ExtResource("1_5crfm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5lsiu")
+autoplay = "default"
+frame_progress = 0.43479922
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_k4xjv")
+
+[node name="ScoreLabel" type="Label" parent="."]
+visible = false
+offset_left = -34.0
+offset_top = -23.0
+offset_right = 35.0
+text = "+1023"
+label_settings = SubResource("LabelSettings_5xaee")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScoreLabel"]
+libraries = {
+&"": SubResource("AnimationLibrary_k06pt")
+}
+
+[connection signal="animation_finished" from="ScoreLabel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

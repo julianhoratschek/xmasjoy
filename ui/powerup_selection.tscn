@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqrtal6tnitnr"]
+
+[ext_resource type="PackedScene" uid="uid://b805r3y74x36t" path="res://ui/powerup_tile.tscn" id="1_5rakw"]
+[ext_resource type="Script" uid="uid://bgcldb11hapds" path="res://scripts/ui/powerup_selection.gd" id="1_71y74"]
+[ext_resource type="FontFile" uid="uid://cbxioj0mtjvhn" path="res://assets/fonts/Kingthings Christmas 2.2.ttf" id="2_71y74"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hvsf"]
+bg_color = Color(0.28627452, 0.27450982, 0.23529412, 0.57254905)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hvsf"]
+font = ExtResource("2_71y74")
+font_size = 64
+
+[node name="PowerupSelection" type="Panel"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvsf")
+script = ExtResource("1_71y74")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CaptionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Select Powerup"
+label_settings = SubResource("LabelSettings_3hvsf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerupTiles" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="PowerupTile" parent="VBoxContainer/PowerupTiles" instance=ExtResource("1_5rakw")]
+layout_mode = 2
+
+[node name="PowerupTile2" parent="VBoxContainer/PowerupTiles" instance=ExtResource("1_5rakw")]
+layout_mode = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="powerup_selected" from="VBoxContainer/PowerupTiles/PowerupTile" to="." method="_on_powerup_selected"]
+[connection signal="powerup_selected" from="VBoxContainer/PowerupTiles/PowerupTile2" to="." method="_on_powerup_selected"]
