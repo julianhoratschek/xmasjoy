@@ -1,0 +1,117 @@
+{
+	"CoalCoboldSpawner": [
+	{
+		"min_enemies": 0,
+		"max_enemies": 2,
+		"min_timer": 2.0,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 2,
+		"max_enemies": 4,
+		"min_timer": 2.0,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 2,
+		"max_enemies": 6,
+		"min_timer": 2.0,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 4,
+		"max_enemies": 6,
+		"min_timer": 2.0,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 4,
+		"max_enemies": 8,
+		"min_timer": 2.0,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 4,
+		"max_enemies": 10,
+		"min_timer": 1.8,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 6,
+		"max_enemies": 10,
+		"min_timer": 1.8,
+		"max_timer": 8.0
+	},
+
+	{
+		"min_enemies": 8,
+		"max_enemies": 10,
+		"min_timer": 1.8,
+		"max_timer": 8.0
+	}
+	],
+
+	"SnowmanSpawner": [
+	{
+		"min_enemies": 0,
+		"max_enemies": 0,
+		"min_timer": 0,
+		"max_timer": 0
+	},
+
+	{
+		"min_enemies": 0,
+		"max_enemies": 0,
+		"min_timer": 0,
+		"max_timer": 0
+	},
+
+	{
+		"min_enemies": 0,
+		"max_enemies": 2,
+		"min_timer": 5.0,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 2,
+		"max_enemies": 4,
+		"min_timer": 5.0,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 2,
+		"max_enemies": 6,
+		"min_timer": 5.0,
+		"max_timer": 10.0
+	},
+
+	{
+		"min_enemies": 2,
+		"max_enemies": 6,
+		"min_timer": 2.0,
+		"max_timer": 8.0
+	},
+
+	{
+		"min_enemies": 4,
+		"max_enemies": 6,
+		"min_timer": 2.0,
+		"max_timer": 8.0
+	},
+
+	{
+		"min_enemies": 4,
+		"max_enemies": 8,
+		"min_timer": 1.8,
+		"max_timer": 8.0
+	}
+	]
+}

@@ -2,6 +2,7 @@ class_name Enemy extends Node2D
 
 """
 Base class for all enemies
+Subclass this for enemies and set health, speed, damage and xp in _ready
 """
 
 ## Used to spawn XP when enemy is defeated
@@ -22,6 +23,8 @@ var damage := 10
 
 ## XP dropped when defeated
 var xp := 10
+
+var _direction := Vector2.ZERO
 
 
 ## Create a XP-instance (called when health is 0)
@@ -44,12 +47,11 @@ func hit_by(projectile: Projectile) -> void:
 		return
 	
 	# Pushback enemy
-	var dir := position.direction_to(player.position)
-	position -= dir * projectile.pushback
+	position -= _direction * projectile.pushback
 
 
 ## Simple movement towards player
 func _process(delta: float) -> void:
-	var dir := position.direction_to(player.position)
+	_direction = position.direction_to(player.position)
 
-	position += dir * speed * delta
+	position += _direction * speed * delta

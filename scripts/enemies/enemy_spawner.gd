@@ -30,6 +30,16 @@ var _spawn_timer := 0.0
 var _spawn_counter := 0.0
 
 
+func set_values(threat_values: Dictionary) -> void:
+	min_enemies = threat_values["min_enemies"]
+	max_enemies = threat_values["max_enemies"]
+	spawn_timer_min = threat_values["min_timer"]
+	spawn_timer_max = threat_values["max_timer"]
+
+	_spawn_timer = randf_range(spawn_timer_min, spawn_timer_max)
+	_spawn_counter = randf_range(0.0, _spawn_timer)
+
+
 ## Periodically spawn n enemies around player
 func _process(delta: float) -> void:
 	_spawn_counter += delta

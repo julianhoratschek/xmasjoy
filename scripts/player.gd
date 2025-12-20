@@ -16,6 +16,8 @@ var health := 100
 ## Current player XP
 var xp := 0
 
+var _level_xp := 30
+
 ## Powerups currently held by the player
 # Each instants keeps track of its own level
 var powerups: Dictionary[String, Powerup] = {}
@@ -66,8 +68,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif body is XPBall:
 		xp += body.amount
 		body.collect()
-		if xp >= 30:
+		if xp >= _level_xp:
 			xp = 0
+			_level_xp += 20
 			level_up.emit()
 
 
