@@ -27,6 +27,7 @@ var lifetime := 3.0
 var _lifetime_counter := 3.0
 
 
+## Reset lifetime for new bullets
 func _on_spawn():
 	_lifetime_counter = lifetime
 
@@ -40,6 +41,7 @@ func _process(delta: float) -> void:
 		release()
 
 
+## Logic on hitting enemies
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	if enemy is Enemy:

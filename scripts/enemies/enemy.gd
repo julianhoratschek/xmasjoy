@@ -12,27 +12,31 @@ static var XPBallPrefab = preload("res://prefabs/xp.tscn")
 static var player: Player = null
 
 
-## Health of the enemy
-@export
-var spawn_health := 100
+## First Health of the enemy
+@export var spawn_health := 100
 
-## Movement-speed
-@export
-var spawn_speed := 50
+## First Movement-speed
+@export var spawn_speed := 50
 
-## Damage done on collision with enemy
-@export
-var spawn_damage := 10
+## First Damage done on collision with enemy
+@export var spawn_damage := 10
 
-## XP dropped when defeated
-@export
-var spawn_xp := 10
+## First XP dropped when defeated
+@export var spawn_xp := 10
 
+## Direction enemy is walking into
 var _direction := Vector2.ZERO
 
+## Effective current health
 var health := 0
+
+## Effective current speed
 var speed := 0
+
+## Effective current damage dealt
 var damage := 0
+
+## Effective current xp
 var xp := 0
 
 
@@ -53,13 +57,13 @@ func hit_by(projectile: Projectile) -> void:
 	if health <= 0:
 		call_deferred("create_xp")
 		release()
-		# queue_free()
 		return
 	
 	# Pushback enemy
 	position -= _direction * projectile.pushback
 
 
+## Reset base values on respawn from pool
 func _on_spawn():
 	health = spawn_health
 	speed = spawn_speed

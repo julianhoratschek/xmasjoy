@@ -9,7 +9,7 @@ signal powerup_selected(powerup: Powerup)
 
 
 ## Property to set content
-# value should be a dictionary containing "image", "name" and "powerup" fields
+# value should be a Powerup-Node
 var content: Powerup:
 	set(value):
 		$VBoxContainer/TextureRect.texture = value.display_image

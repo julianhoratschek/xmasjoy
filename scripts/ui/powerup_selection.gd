@@ -7,10 +7,15 @@ UI-Element to present player with different Powerups to choose
 ## Emitted when a powerup was chosen
 signal powerup_selected(powerup: String)
 
+## Used to find powerups (as children of player)
+# TODO: Rather have another node for this?
+# TODO: Or have all powerups setup manually?
 @export
 var player: Player = null
 
+## List of all found powerups
 var content: Array[Powerup] = []
+
 
 ## Sets new selection (does not check for double-selections)
 func reroll() -> void:
@@ -18,6 +23,7 @@ func reroll() -> void:
 		tile.content = content.pick_random()
 
 
+## Fill content with powerup-nodes found as children of player
 func _ready() -> void:
 	for pu_node in player.find_children("Pu*", "Powerup", false):
 		content.append(pu_node)
@@ -31,6 +37,7 @@ func _on_powerup_selected(powerup: Powerup):
 
 ## Pauses and unpauses SceneTree when this is displayed
 func _on_visibility_changed() -> void:
+	# Necessary, as godot calls this before tree_enter
 	if not is_node_ready():
 		return
 

@@ -5,6 +5,8 @@ class_name XPBall extends Node2D
 XP-Collectables
 """
 
+# TODO: As poolable resource?
+
 ## Amount of xp received when picking this instance up
 var amount := 0
 

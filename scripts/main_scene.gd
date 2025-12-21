@@ -7,15 +7,20 @@ Top-level assignments are made here
 
 @onready var powerup_selection := $CanvasLayer/PowerupSelection
 
-
+## Maximum level for enemy spawners
 const max_threat_level = 7
+
+## Current level of enemy spawners
 var current_threat := 0
+
+## Per-level values for enemy spawners
 var threat_levels: Dictionary = JSON.parse_string(
 	FileAccess.get_file_as_string(
 		"res://data/threat_level.json")
 )
 
 
+## Set spawner values according to current threat-level
 func update_spawners() -> void:
 	var spawners = $Spawners
 
@@ -31,8 +36,6 @@ func update_spawners() -> void:
 # Set static variables to point at player
 func _ready() -> void:
 	Enemy.player = $Player
-	# Powerup.player = $Player
-	# ObjectPool.MainScene = self
 
 	update_spawners()
 
@@ -47,6 +50,7 @@ func _on_player_level_up() -> void:
 	powerup_selection.show()
 
 
+## Increase threat-level periodically
 func _on_timer_timeout() -> void:
 	if current_threat >= max_threat_level:
 		$Timer.stop()

@@ -5,9 +5,12 @@ class_name Powerup extends Node
 Base class for all Powerups
 """
 
+
+## Name to show on powerup-selection
 @export
 var display_name := ""
 
+## Image to display on powerup-selection
 @export
 var display_image: Texture = null
 
@@ -34,6 +37,7 @@ func stack_callback():
 	level += 1
 
 
+## Simple frequency counter. Does nothing if level is 0
 func _process(delta: float) -> void:
 	if level == 0:
 		return

@@ -6,6 +6,8 @@ Level-Up:
 	- Candy Cone rotates faster
 """
 
+# TODO: Does this need an object pool?
+
 ## Prefab to spawn CandyCone-"Bullet"
 const CandyCanePrefab := preload("res://prefabs/projectiles/candy_cane.tscn")
 

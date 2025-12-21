@@ -20,7 +20,6 @@ var xp := 0
 var _level_xp := 30
 
 ## Add a new power-up or level up an existing one
-# TODO: Better done with string-name and power-ups here?
 func add_powerup(powerup: Powerup):
 	powerup.stack_callback()
 
@@ -40,10 +39,6 @@ func hit_by(enemy: Enemy) -> void:
 func _process(delta: float):
 	var dir := Input.get_vector(&"gme_left", &"gme_right", &"gme_up", &"gme_down")
 	position += dir * speed * delta
-
-	# Tick times and calls a powerup
-	# for powerup in powerups.values():
-	# 	powerup.tick(delta)
 
 
 ## Hit-detection on player
