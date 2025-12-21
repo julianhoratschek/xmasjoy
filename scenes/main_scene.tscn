@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyg44obofc0f4"]
+[gd_scene load_steps=13 format=3 uid="uid://dyg44obofc0f4"]
 
 [ext_resource type="Script" uid="uid://dp0vvs3nqle57" path="res://scripts/main_scene.gd" id="1_w2twt"]
 [ext_resource type="PackedScene" uid="uid://desqo32gyby16" path="res://prefabs/player.tscn" id="2_pw63i"]
-[ext_resource type="PackedScene" uid="uid://wlwt2d04wt54" path="res://prefabs/enemy_spawner.tscn" id="3_18nlu"]
-[ext_resource type="PackedScene" uid="uid://dmhyrxsnqhd02" path="res://prefabs/coal_cobold.tscn" id="3_c16ls"]
-[ext_resource type="PackedScene" uid="uid://qlffo16i1dht" path="res://prefabs/snowman.tscn" id="5_rt2n2"]
+[ext_resource type="PackedScene" uid="uid://wlwt2d04wt54" path="res://prefabs/enemies/enemy_spawner.tscn" id="3_18nlu"]
+[ext_resource type="PackedScene" uid="uid://dmhyrxsnqhd02" path="res://prefabs/enemies/coal_cobold.tscn" id="3_c16ls"]
+[ext_resource type="PackedScene" uid="uid://csuwhfosrvmjc" path="res://prefabs/enemies/match.tscn" id="5_18nlu"]
+[ext_resource type="PackedScene" uid="uid://qlffo16i1dht" path="res://prefabs/enemies/snowman.tscn" id="5_rt2n2"]
 [ext_resource type="FontFile" uid="uid://cbxioj0mtjvhn" path="res://assets/fonts/Kingthings Christmas 2.2.ttf" id="7_c16ls"]
 [ext_resource type="PackedScene" uid="uid://cqrtal6tnitnr" path="res://ui/powerup_selection.tscn" id="8_18nlu"]
 
@@ -12,6 +13,33 @@
 font = ExtResource("7_c16ls")
 font_size = 129
 font_color = Color(0.6, 0, 0.08235294, 1)
+
+[sub_resource type="Animation" id="Animation_6wevv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_c1pb6"]
 resource_name = "fade_in_out"
@@ -41,33 +69,6 @@ tracks/1/keys = {
 "values": [Vector2(0.8, 0.8), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_6wevv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e1cbu"]
 _data = {
 &"RESET": SubResource("Animation_6wevv"),
@@ -92,6 +93,9 @@ max_enemies = 10
 spawn_timer_min = 1.5
 spawn_timer_max = 8.5
 
+[node name="MatchSpawner" parent="Spawners" instance=ExtResource("3_18nlu")]
+enemy_type = ExtResource("5_18nlu")
+
 [node name="Player" parent="." instance=ExtResource("2_pw63i")]
 position = Vector2(233, 247)
 
@@ -102,7 +106,7 @@ position = Vector2(233, 247)
 [node name="PowerupSelection" parent="CanvasLayer" instance=ExtResource("8_18nlu")]
 
 [node name="JoyLevelLabel" type="Label" parent="CanvasLayer"]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

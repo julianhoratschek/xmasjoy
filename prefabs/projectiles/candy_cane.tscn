@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://chmbulx4r2eaw"]
+
+[ext_resource type="PackedScene" uid="uid://5b3ft0jv7780" path="res://prefabs/projectiles/projectile.tscn" id="1_n3eo1"]
+[ext_resource type="Script" uid="uid://b64o6mhayxanl" path="res://scripts/projectiles/candy_cane.gd" id="2_rorqi"]
+[ext_resource type="Texture2D" uid="uid://dxx8lmf0udbjp" path="res://assets/sprites/candy_cane.png" id="3_mnxuk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yes02"]
+radius = 5.0
+height = 64.0
+
+[node name="CandyCane" instance=ExtResource("1_n3eo1")]
+script = ExtResource("2_rorqi")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_mnxuk")
+offset = Vector2(0, -80)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -79)
+shape = SubResource("CapsuleShape2D_yes02")

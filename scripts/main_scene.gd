@@ -56,6 +56,5 @@ func _on_timer_timeout() -> void:
 	var label = $CanvasLayer/JoyLevelLabel
 	label.text = "Joy Level %d" % current_threat
 	$CanvasLayer/JoyLevelLabel/AnimationPlayer.play("fade_in_out")
-	label.show()
 
 	update_spawners()

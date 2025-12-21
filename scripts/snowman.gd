@@ -4,6 +4,7 @@ extends Enemy
 func _ready() -> void:
 	health = 120
 	speed = 80
+	damage = 20
 	xp = 30
 
 

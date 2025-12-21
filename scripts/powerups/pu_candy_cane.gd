@@ -7,7 +7,7 @@ Level-Up:
 """
 
 ## Prefab to spawn CandyCone-"Bullet"
-const CandyCanePrefab := preload("res://prefabs/candy_cane.tscn")
+const CandyCanePrefab := preload("res://prefabs/projectiles/candy_cane.tscn")
 
 ## Reference of spawned CandyCone-"Bullet"
 var _candy_cane: Node2D = null

@@ -13,7 +13,7 @@ var speed := 400
 var damage := 25
 
 ## Direction the projectile is travelling in
-var direction := Vector2.UP
+var direction := Vector2.ZERO
 
 ## True is projectile won't despawn when an enemy was hit
 var piercing := false
@@ -32,4 +32,10 @@ func _process(delta: float) -> void:
 	_lifetime -= delta
 	if _lifetime < 0.0:
 		queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	var enemy = area.get_parent()
+	if enemy is Enemy:
+		enemy.hit_by(self)
 

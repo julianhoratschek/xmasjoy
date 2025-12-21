@@ -21,11 +21,11 @@ var content := [
 		"powerup": StarPU.new()
 	},
 	
-	# {
-	# 	"name": "Nut Cracker",
-	# 	"image": preload("res://assets/sprites/nut_cracker.png"),
-	# 	"powerup": null # NutCrackerPU.new()
-	# },
+	{
+		"name": "Nut Cracker",
+		"image": preload("res://assets/sprites/nut_cracker.png"),
+		"powerup": NutCrackerPU.new()
+	},
 
 	{
 		"name": "Tin Soldier",

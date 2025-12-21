@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://c71f6f3cf7yui"]
+
+[ext_resource type="Script" uid="uid://c5wnp1iocsiba" path="res://scripts/projectiles/bite.gd" id="1_dmbi3"]
+[ext_resource type="Texture2D" uid="uid://d1gx0tctrk1c2" path="res://assets/sprites/teeth.png" id="1_hyj0m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmbi3"]
+atlas = ExtResource("1_hyj0m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blc6g"]
+atlas = ExtResource("1_hyj0m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sr16"]
+atlas = ExtResource("1_hyj0m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cup78"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmbi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blc6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sr16")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3n7u"]
+size = Vector2(30, 20)
+
+[node name="Bite" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_dmbi3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cup78")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_r3n7u")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

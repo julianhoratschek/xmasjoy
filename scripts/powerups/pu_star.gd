@@ -9,7 +9,7 @@ Level-Up:
 """
 
 
-const StarScene := preload("res://prefabs/star.tscn")
+const StarScene := preload("res://prefabs/projectiles/star.tscn")
 
 
 func process_callback():
@@ -29,4 +29,3 @@ func stack_callback():
 func _init() -> void:
 	frequency = 0.8
 	name = "star"
-

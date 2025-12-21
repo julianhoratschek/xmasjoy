@@ -7,7 +7,7 @@ Level-Up:
 	- More random bullets spawn at once
 """
 
-const BulletScene := preload("res://prefabs/tin_soldier_bullet.tscn")
+const BulletScene := preload("res://prefabs/projectiles/tin_soldier_bullet.tscn")
 
 
 func process_callback():

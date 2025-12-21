@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1tp3kruwhsco"]
+
+[ext_resource type="PackedScene" uid="uid://5b3ft0jv7780" path="res://prefabs/projectiles/projectile.tscn" id="1_chsll"]
+[ext_resource type="Texture2D" uid="uid://dq4gyx1ok0gr2" path="res://assets/sprites/star.png" id="2_en74b"]
+[ext_resource type="Script" uid="uid://dfgmu6khodefn" path="res://scripts/projectiles/star.gd" id="2_yc6km"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_en74b"]
+radius = 14.0
+
+[node name="Star" instance=ExtResource("1_chsll")]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("2_yc6km")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_en74b")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_en74b")
