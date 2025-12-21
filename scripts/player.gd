@@ -16,19 +16,13 @@ var health := 100
 ## Current player XP
 var xp := 0
 
+## How much XP do we need for the next level?
 var _level_xp := 30
-
-## Powerups currently held by the player
-# Each instants keeps track of its own level
-var powerups: Dictionary[String, Powerup] = {}
-
 
 ## Add a new power-up or level up an existing one
 # TODO: Better done with string-name and power-ups here?
 func add_powerup(powerup: Powerup):
-	if not powerups.has(powerup.name):
-		powerups[powerup.name] = powerup
-	powerups[powerup.name].stack_callback()
+	powerup.stack_callback()
 
 
 ## Called when player was hit by an enemy
@@ -42,19 +36,14 @@ func hit_by(enemy: Enemy) -> void:
 		pass
 
 
-## Start game with Star-Powerup
-func _ready() -> void:
-	add_powerup(StarPU.new())
-
-
 ## Simple movement and call to Powerups
 func _process(delta: float):
 	var dir := Input.get_vector(&"gme_left", &"gme_right", &"gme_up", &"gme_down")
 	position += dir * speed * delta
 
 	# Tick times and calls a powerup
-	for powerup in powerups.values():
-		powerup.tick(delta)
+	# for powerup in powerups.values():
+	# 	powerup.tick(delta)
 
 
 ## Hit-detection on player
@@ -68,11 +57,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif body is XPBall:
 		xp += body.amount
 		body.collect()
+
 		if xp >= _level_xp:
 			xp = 0
 			_level_xp += 20
 			level_up.emit()
-
-
-
-

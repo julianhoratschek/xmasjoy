@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyg44obofc0f4"]
+[gd_scene load_steps=17 format=3 uid="uid://dyg44obofc0f4"]
 
 [ext_resource type="Script" uid="uid://dp0vvs3nqle57" path="res://scripts/main_scene.gd" id="1_w2twt"]
 [ext_resource type="PackedScene" uid="uid://desqo32gyby16" path="res://prefabs/player.tscn" id="2_pw63i"]
@@ -7,7 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://csuwhfosrvmjc" path="res://prefabs/enemies/match.tscn" id="5_18nlu"]
 [ext_resource type="PackedScene" uid="uid://qlffo16i1dht" path="res://prefabs/enemies/snowman.tscn" id="5_rt2n2"]
 [ext_resource type="FontFile" uid="uid://cbxioj0mtjvhn" path="res://assets/fonts/Kingthings Christmas 2.2.ttf" id="7_c16ls"]
+[ext_resource type="PackedScene" uid="uid://dltcg0k47xnnl" path="res://prefabs/powerups/PUCandyCane.tscn" id="7_mngbo"]
+[ext_resource type="PackedScene" uid="uid://bpfjk6sj24lri" path="res://prefabs/powerups/PUNutCracker.tscn" id="8_4w45t"]
 [ext_resource type="PackedScene" uid="uid://cqrtal6tnitnr" path="res://ui/powerup_selection.tscn" id="8_18nlu"]
+[ext_resource type="PackedScene" uid="uid://cq7rjoc8ufoo" path="res://prefabs/powerups/PUStar.tscn" id="9_r6p65"]
+[ext_resource type="PackedScene" uid="uid://cji4pf8qr4ufm" path="res://prefabs/powerups/PUTinSoldier.tscn" id="10_si52b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_18nlu"]
 font = ExtResource("7_c16ls")
@@ -101,9 +105,19 @@ position = Vector2(233, 247)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="PuCandyCane" parent="Player" instance=ExtResource("7_mngbo")]
+
+[node name="PuNutCracker" parent="Player" instance=ExtResource("8_4w45t")]
+
+[node name="PuStar" parent="Player" instance=ExtResource("9_r6p65")]
+
+[node name="PuTinSoldier" parent="Player" instance=ExtResource("10_si52b")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PowerupSelection" parent="CanvasLayer" instance=ExtResource("8_18nlu")]
+[node name="PowerupSelection" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_18nlu")]
+visible = false
+player = NodePath("../../Player")
 
 [node name="JoyLevelLabel" type="Label" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dltcg0k47xnnl"]
+
+[ext_resource type="Script" uid="uid://de4rf6gnmk6li" path="res://scripts/powerups/pu_candy_cane.gd" id="1_jnuv7"]
+[ext_resource type="Texture2D" uid="uid://dxx8lmf0udbjp" path="res://assets/sprites/candy_cane.png" id="2_36uty"]
+
+[node name="PuCandyCane" type="Node"]
+script = ExtResource("1_jnuv7")
+display_name = "Candy Cane"
+display_image = ExtResource("2_36uty")

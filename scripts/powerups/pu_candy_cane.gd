@@ -25,12 +25,6 @@ func process_callback():
 func stack_callback():
 	if not _candy_cane:
 		_candy_cane = CandyCanePrefab.instantiate()
-		player.add_child(_candy_cane)
+		add_sibling(_candy_cane)
 	super()
 	_rotation_amount = -level * 0.01
-
-
-## Frequency is 0 as _candy_cane rotates continuously
-func _init() -> void:
-	frequency = 0.0
-	name = "candy_cane"

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq7rjoc8ufoo"]
+
+[ext_resource type="Script" uid="uid://bqh66ou3io2jo" path="res://scripts/powerups/pu_star.gd" id="1_g7e3v"]
+[ext_resource type="Texture2D" uid="uid://dq4gyx1ok0gr2" path="res://assets/sprites/star.png" id="2_dwhbl"]
+
+[node name="PuStar" type="Node"]
+script = ExtResource("1_g7e3v")
+display_name = "X-Mas Star"
+display_image = ExtResource("2_dwhbl")
+level = 1
+frequency = 0.8

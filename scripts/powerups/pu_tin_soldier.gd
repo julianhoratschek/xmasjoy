@@ -11,15 +11,11 @@ const BulletScene := preload("res://prefabs/projectiles/tin_soldier_bullet.tscn"
 
 
 func process_callback():
+	var parent = get_parent()
 	for num in range(level):
 		var new_bullet: Projectile = BulletScene.instantiate()
 
-		new_bullet.position = player.position
+		new_bullet.position = parent.position
 		new_bullet.direction = Vector2.UP.rotated(randf_range(0, 2 * PI))
 		new_bullet.look_at(new_bullet.position + new_bullet.direction * 50)
-		player.add_sibling(new_bullet)
-
-
-func _init() -> void:
-	frequency = 5.0
-	name = "tin_soldier"
+		parent.add_sibling(new_bullet)

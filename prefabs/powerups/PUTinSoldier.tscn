@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cji4pf8qr4ufm"]
+
+[ext_resource type="Script" uid="uid://ch4cjq3i5lbhm" path="res://scripts/powerups/pu_tin_soldier.gd" id="1_3q4de"]
+[ext_resource type="Texture2D" uid="uid://cnfxqn44hl8a" path="res://assets/sprites/tin_soldier.png" id="2_2pk1k"]
+
+[node name="PuTinSoldier" type="Node"]
+script = ExtResource("1_3q4de")
+display_name = "Tin Soldier"
+display_image = ExtResource("2_2pk1k")
+frequency = 1.7

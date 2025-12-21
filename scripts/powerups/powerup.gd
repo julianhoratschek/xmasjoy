@@ -1,28 +1,27 @@
-class_name Powerup extends Object
+class_name Powerup extends Node
 
 
 """
 Base class for all Powerups
-Subclass this and:
-	- override process_callback for actions that take place periodically
-	- override stack_callback for changes when levelling up this Powerup
-	- set frequency and name in _init
 """
 
-## Convenience to interact with player
-static var player: Player = null
+@export
+var display_name := ""
+
+@export
+var display_image: Texture = null
 
 ## Level of current Powerup
+@export
 var level := 0
 
 ## Frequency between calls of process_callback
+@export
 var frequency := 0.0
-
-## Name of the current Powerup
-var name := "undefined"
 
 ## Counter for frequency
 var _counter := 0.0
+
 
 
 ## Virtual, override with own logic for Powerup
@@ -35,13 +34,12 @@ func stack_callback():
 	level += 1
 
 
-## Call this from _process
-# Will keep track of Powerup frequency and call process_callback
-# periodically
-func tick(delta: float) -> bool:
+func _process(delta: float) -> void:
+	if level == 0:
+		return
+
 	_counter += delta
 	if _counter < frequency:
-		return false
+		return
 	_counter -= frequency
 	process_callback()
-	return true

@@ -31,7 +31,8 @@ func update_spawners() -> void:
 # Set static variables to point at player
 func _ready() -> void:
 	Enemy.player = $Player
-	Powerup.player = $Player
+	# Powerup.player = $Player
+	# ObjectPool.MainScene = self
 
 	update_spawners()
 

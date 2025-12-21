@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpfjk6sj24lri"]
+
+[ext_resource type="Script" uid="uid://dejnmnvn5ejhl" path="res://scripts/powerups/pu_nut_cracker.gd" id="1_pk431"]
+[ext_resource type="Texture2D" uid="uid://cj3jqqc1eh0t4" path="res://assets/sprites/nut_cracker.png" id="2_a5170"]
+
+[node name="PuNutCracker" type="Node"]
+script = ExtResource("1_pk431")
+display_name = "Nut Cracker"
+display_image = ExtResource("2_a5170")
+frequency = 3.0

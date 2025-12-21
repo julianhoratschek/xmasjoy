@@ -10,11 +10,11 @@ signal powerup_selected(powerup: Powerup)
 
 ## Property to set content
 # value should be a dictionary containing "image", "name" and "powerup" fields
-var content:
+var content: Powerup:
 	set(value):
-		$VBoxContainer/TextureRect.texture = value["image"]
-		$VBoxContainer/NameLabel.text = value["name"]
-		_powerup = value["powerup"]
+		$VBoxContainer/TextureRect.texture = value.display_image
+		$VBoxContainer/NameLabel.text = value.display_name
+		_powerup = value
 
 
 ## Represents currently held powerup
@@ -41,5 +41,3 @@ func _gui_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT \
 			and event.is_pressed():
 				powerup_selected.emit(_powerup)
-
-
