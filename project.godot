@@ -43,6 +43,11 @@ gme_fire={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="XP"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

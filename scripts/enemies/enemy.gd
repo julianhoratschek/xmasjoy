@@ -1,4 +1,4 @@
-class_name Enemy extends Node2D
+class_name Enemy extends PooledObject
 
 """
 Base class for all enemies
@@ -13,18 +13,27 @@ static var player: Player = null
 
 
 ## Health of the enemy
-var health := 100
+@export
+var spawn_health := 100
 
 ## Movement-speed
-var speed := 50
+@export
+var spawn_speed := 50
 
 ## Damage done on collision with enemy
-var damage := 10
+@export
+var spawn_damage := 10
 
 ## XP dropped when defeated
-var xp := 10
+@export
+var spawn_xp := 10
 
 var _direction := Vector2.ZERO
+
+var health := 0
+var speed := 0
+var damage := 0
+var xp := 0
 
 
 ## Create a XP-instance (called when health is 0)
@@ -43,11 +52,19 @@ func hit_by(projectile: Projectile) -> void:
 	health -= projectile.damage
 	if health <= 0:
 		call_deferred("create_xp")
-		queue_free()
+		release()
+		# queue_free()
 		return
 	
 	# Pushback enemy
 	position -= _direction * projectile.pushback
+
+
+func _on_spawn():
+	health = spawn_health
+	speed = spawn_speed
+	damage = spawn_damage
+	xp = spawn_xp
 
 
 ## Simple movement towards player
