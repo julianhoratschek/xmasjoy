@@ -9,18 +9,20 @@ Level-Up:
 """
 
 
-const StarScene := preload("res://prefabs/projectiles/star.tscn")
+@onready
+var pool: ObjectPool = ObjectPool.new(
+	preload("res://prefabs/projectiles/star.tscn"),
+	get_parent().get_parent()
+)
 
 
 func process_callback():
-	# var star: Projectile = StarScene.instantiate()
 	var parent = get_parent()
-	var star: Projectile = StarScene.instantiate()
+	var star = pool.pop()
 
 	star.position = parent.position
 	star.direction = parent.position.direction_to(
 		parent.get_global_mouse_position())
-	parent.add_sibling(star)
 
 
 func stack_callback():

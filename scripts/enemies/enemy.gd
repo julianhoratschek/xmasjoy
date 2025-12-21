@@ -38,7 +38,7 @@ func create_xp() -> void:
 ## Called when enemy is hit by projectile
 func hit_by(projectile: Projectile) -> void:
 	if not projectile.piercing:
-		projectile.queue_free()
+		projectile.release()
 
 	health -= projectile.damage
 	if health <= 0:

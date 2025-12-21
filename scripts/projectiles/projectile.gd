@@ -1,4 +1,4 @@
-class_name Projectile extends Node2D
+class_name Projectile extends PooledObject
 
 
 """
@@ -21,17 +21,23 @@ var piercing := false
 ## How much an enemy is pushed back on hit
 var pushback := 20.0
 
+var lifetime := 3.0
+
 ## How long this projectile will persist
-var _lifetime := 3.0
+var _lifetime_counter := 3.0
+
+
+func _on_spawn():
+	_lifetime_counter = lifetime
 
 
 ## Simple movement and lifetime checker
 func _process(delta: float) -> void:
 	position += speed * delta * direction
 
-	_lifetime -= delta
-	if _lifetime < 0.0:
-		queue_free()
+	_lifetime_counter -= delta
+	if _lifetime_counter < 0.0:
+		release()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

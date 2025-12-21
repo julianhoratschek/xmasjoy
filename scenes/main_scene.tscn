@@ -108,6 +108,7 @@ position = Vector2(233, 247)
 [node name="PuCandyCane" parent="Player" instance=ExtResource("7_mngbo")]
 
 [node name="PuNutCracker" parent="Player" instance=ExtResource("8_4w45t")]
+level = 1
 
 [node name="PuStar" parent="Player" instance=ExtResource("9_r6p65")]
 
