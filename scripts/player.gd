@@ -13,11 +13,18 @@ var speed := 200.0
 ## Player health
 var health := 100
 
+## Invincibility-Frames after hit
+var iframes_time := 0.8
+
 ## Current player XP
 var xp := 0
 
 ## How much XP do we need for the next level?
 var _level_xp := 30
+
+## Counter for invicibility frames
+var _iframes_counter := 0.0
+
 
 ## Add a new power-up or level up an existing one
 func add_powerup(powerup: Powerup):
@@ -34,11 +41,19 @@ func hit_by(enemy: Enemy) -> void:
 		# TODO: Game over
 		pass
 
+	_iframes_counter = iframes_time
+
 
 ## Simple movement and call to Powerups
 func _process(delta: float):
 	var dir := Input.get_vector(&"gme_left", &"gme_right", &"gme_up", &"gme_down")
 	position += dir * speed * delta
+
+	# TODO: this could be a simple shader
+	modulate.a = 1.0
+	if _iframes_counter > 0.0:
+		_iframes_counter -= delta
+		modulate.a = sin(_iframes_counter * 2 * PI * 9)
 
 
 ## Hit-detection on player
@@ -46,7 +61,7 @@ func _process(delta: float):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var body = area.get_parent()
 
-	if body is Enemy:
+	if body is Enemy and _iframes_counter <= 0.0:
 		hit_by(body)
 
 	elif body is XPBall:

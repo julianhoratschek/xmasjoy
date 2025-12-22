@@ -37,7 +37,7 @@ func _release(obj_index: int):
 func resize_list() -> PooledObject:
 	var old_size = _obj_list.size()
 	if old_size >= max_size:
-		return
+		return null
 
 	var new_size = old_size * 2
 	if new_size > max_size:
@@ -71,6 +71,10 @@ func pop() -> PooledObject:
 	if _free_idx.is_empty():
 		return resize_list()
 	return _obj_list[_free_idx.pop_back()].spawn()
+
+
+func active_instances() -> int:
+	return _obj_list.size() - _free_idx.size()
 
 
 ## Create object pool and fill the first few items

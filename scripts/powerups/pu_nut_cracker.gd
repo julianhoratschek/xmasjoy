@@ -15,6 +15,9 @@ func process_callback():
 	var parent = get_parent()
 	for num in range(level):
 		var new_bite: Projectile = pool.pop()
+		if !new_bite:
+			return
+
 		var dir := Vector2.UP.rotated(randf_range(0.0, 2*PI))
 
 		new_bite.position = parent.position + dir * randf_range(25.0, radius)

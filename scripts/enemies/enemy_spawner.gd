@@ -17,6 +17,8 @@ static var radius := 700.0
 ## Maximum amount of enemies to spawn per call
 @export var max_enemies := 5
 
+@export var spawn_max := 10
+
 ## Minimum time to pass between spawn calls
 @export var spawn_timer_min := 2.0
 
@@ -42,6 +44,7 @@ func set_values(threat_values: Dictionary) -> void:
 	max_enemies = threat_values["max_enemies"]
 	spawn_timer_min = threat_values["min_timer"]
 	spawn_timer_max = threat_values["max_timer"]
+	spawn_max = threat_values["spawn_max"]
 
 	_spawn_timer = randf_range(spawn_timer_min, spawn_timer_max)
 	_spawn_counter = randf_range(0.0, _spawn_timer)
@@ -55,8 +58,13 @@ func _process(delta: float) -> void:
 	_spawn_counter -= _spawn_timer
 	_spawn_timer = randf_range(spawn_timer_min, spawn_timer_max)
 
+	if pool.active_instances() >= spawn_max:
+		return
+
 	for n in range(randi_range(min_enemies, max_enemies)):
 		var new_enemy: Enemy = pool.pop()
+		if !new_enemy:
+			return
 
 		var dir := Vector2.UP.rotated(randf_range(0.0, 2*PI))
 		var spawn_pos: Vector2 = Enemy.player.position + dir * radius

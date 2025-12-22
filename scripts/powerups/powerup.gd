@@ -7,20 +7,16 @@ Base class for all Powerups
 
 
 ## Name to show on powerup-selection
-@export
-var display_name := ""
+@export var display_name := ""
 
 ## Image to display on powerup-selection
-@export
-var display_image: Texture = null
+@export var display_image: Texture = null
 
 ## Level of current Powerup
-@export
-var level := 0
+@export var level := 0
 
 ## Frequency between calls of process_callback
-@export
-var frequency := 0.0
+@export var frequency := 0.0
 
 ## Counter for frequency
 var _counter := 0.0

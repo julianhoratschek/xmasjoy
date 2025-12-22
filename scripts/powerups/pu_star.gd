@@ -19,6 +19,8 @@ var pool: ObjectPool = ObjectPool.new(
 func process_callback():
 	var parent = get_parent()
 	var star = pool.pop()
+	if !star:
+		return
 
 	star.position = parent.position
 	star.direction = parent.position.direction_to(

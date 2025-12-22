@@ -17,6 +17,8 @@ func process_callback():
 	var parent = get_parent()
 	for num in range(level):
 		var new_bullet: Projectile = pool.pop()
+		if !new_bullet:
+			return
 
 		new_bullet.position = parent.position
 		new_bullet.direction = Vector2.UP.rotated(randf_range(0, 2 * PI))
