@@ -51,6 +51,9 @@
         - Gegner nehmen Schaden und werden langsamer
     - Upgrades:
         - Mehr Kugeln in zufällige Richtungen
+- Cookies
+    - Mechanik:
+        - Alle Waffen werden stärker
 - Schaukelpferd
     - Mechanik:
         - Alle Items werden schneller (Rotation, Frequenz)

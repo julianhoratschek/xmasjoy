@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dyg44obofc0f4"]
+[gd_scene load_steps=21 format=3 uid="uid://dyg44obofc0f4"]
 
 [ext_resource type="Script" uid="uid://dp0vvs3nqle57" path="res://scripts/main_scene.gd" id="1_w2twt"]
 [ext_resource type="PackedScene" uid="uid://desqo32gyby16" path="res://prefabs/player.tscn" id="2_pw63i"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cqrtal6tnitnr" path="res://ui/powerup_selection.tscn" id="8_18nlu"]
 [ext_resource type="PackedScene" uid="uid://cq7rjoc8ufoo" path="res://prefabs/powerups/PUStar.tscn" id="9_r6p65"]
 [ext_resource type="PackedScene" uid="uid://cji4pf8qr4ufm" path="res://prefabs/powerups/PUTinSoldier.tscn" id="10_si52b"]
+[ext_resource type="PackedScene" uid="uid://bkk4ucvu62i4k" path="res://prefabs/powerups/PUCookie.tscn" id="12_01n6w"]
 [ext_resource type="PackedScene" uid="uid://bevvd5kv6smxy" path="res://prefabs/present.tscn" id="13_4w45t"]
 [ext_resource type="Texture2D" uid="uid://breuwu470bsci" path="res://assets/sprites/arrow.png" id="14_si52b"]
 [ext_resource type="Script" uid="uid://s4ojd6p32lrx" path="res://scripts/present_arrow.gd" id="15_01n6w"]
@@ -92,7 +93,6 @@ player = NodePath("../Player")
 
 [node name="CoalCoboldSpawner" parent="Spawners" instance=ExtResource("3_18nlu")]
 position = Vector2(233, 247)
-do_debug = true
 enemy_type = ExtResource("3_c16ls")
 spawn_timer_min = 5.0
 spawn_timer_max = 15.0
@@ -119,6 +119,8 @@ position = Vector2(233, 247)
 [node name="PuStar" parent="Player" instance=ExtResource("9_r6p65")]
 
 [node name="PuTinSoldier" parent="Player" instance=ExtResource("10_si52b")]
+
+[node name="PuCookie" parent="Player" instance=ExtResource("12_01n6w")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

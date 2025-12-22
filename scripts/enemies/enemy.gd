@@ -53,7 +53,7 @@ func hit_by(projectile: Projectile) -> void:
 	if not projectile.piercing:
 		projectile.release()
 
-	health -= projectile.damage
+	health -= projectile.get_damage()
 	if health <= 0:
 		call_deferred("create_xp")
 		release()

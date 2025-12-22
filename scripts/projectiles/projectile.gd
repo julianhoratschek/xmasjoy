@@ -27,6 +27,10 @@ var lifetime := 3.0
 var _lifetime_counter := 3.0
 
 
+func get_damage() -> int:
+	return damage + Powerup.damage_modifier
+
+
 ## Reset lifetime for new bullets
 func _on_spawn():
 	_lifetime_counter = lifetime

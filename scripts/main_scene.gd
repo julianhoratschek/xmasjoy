@@ -53,7 +53,7 @@ func _on_player_level_up() -> void:
 ## Increase threat-level periodically
 func _on_timer_timeout() -> void:
 	if current_threat >= max_threat_level:
-		$Timer.stop()
+		$JoyTimer.stop()
 		return
 
 	current_threat += 1

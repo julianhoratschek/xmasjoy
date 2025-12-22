@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkk4ucvu62i4k"]
+
+[ext_resource type="Script" uid="uid://2utwla1buows" path="res://scripts/powerups/pu_cookie.gd" id="1_ukn02"]
+[ext_resource type="Texture2D" uid="uid://cb78mrtlgnveq" path="res://assets/sprites/cookie.png" id="2_esclp"]
+
+[node name="PUCookie" type="Node"]
+script = ExtResource("1_ukn02")
+display_name = "Cookies"
+display_image = ExtResource("2_esclp")
+frequency = 1000.0

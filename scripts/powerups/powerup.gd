@@ -5,6 +5,7 @@ class_name Powerup extends Node
 Base class for all Powerups
 """
 
+static var damage_modifier := 0
 
 ## Name to show on powerup-selection
 @export var display_name := ""

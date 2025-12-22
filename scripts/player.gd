@@ -26,6 +26,14 @@ var _level_xp := 30
 var _iframes_counter := 0.0
 
 
+const StepsFrequency := 0.2
+var _steps_counter := 0.0
+@onready var _steps_pool := ObjectPool.new(
+	preload("res://prefabs/steps.tscn"),
+	get_parent()
+)
+
+
 ## Add a new power-up or level up an existing one
 func add_powerup(powerup: Powerup):
 	powerup.stack_callback()
@@ -44,11 +52,28 @@ func hit_by(enemy: Enemy) -> void:
 	_iframes_counter = iframes_time
 
 
+func _ready() -> void:
+	_steps_pool.max_size = 50
+
+
 ## Simple movement and call to Powerups
 func _process(delta: float):
+	# Movement
 	var dir := Input.get_vector(&"gme_left", &"gme_right", &"gme_up", &"gme_down")
+
+	if not dir.is_zero_approx():
+		if _steps_counter > 0:
+			_steps_counter -= delta
+		else:
+			_steps_counter += StepsFrequency
+			var new_step = _steps_pool.pop()
+			if new_step:
+				new_step.position = position
+				new_step.rotation = dir.angle()
+
 	position += dir * speed * delta
 
+	# iframes-flicker
 	# TODO: this could be a simple shader
 	modulate.a = 1.0
 	if _iframes_counter > 0.0:
