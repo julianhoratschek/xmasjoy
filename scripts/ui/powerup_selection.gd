@@ -10,8 +10,7 @@ signal powerup_selected(powerup: String)
 ## Used to find powerups (as children of player)
 # TODO: Rather have another node for this?
 # TODO: Or have all powerups setup manually?
-@export
-var player: Player = null
+@export var player: Player = null
 
 ## List of all found powerups
 var content: Array[Powerup] = []

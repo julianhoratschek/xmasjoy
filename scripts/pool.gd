@@ -73,6 +73,7 @@ func pop() -> PooledObject:
 	return _obj_list[_free_idx.pop_back()].spawn()
 
 
+## Returns the number of currently used objects
 func active_instances() -> int:
 	return _obj_list.size() - _free_idx.size()
 

@@ -26,8 +26,13 @@ var _level_xp := 30
 var _iframes_counter := 0.0
 
 
+## How often shall we create footsteps while moving?
 const StepsFrequency := 0.2
+
+## Counter for StepsFrequency
 var _steps_counter := 0.0
+
+## Pool for footsteps
 @onready var _steps_pool := ObjectPool.new(
 	preload("res://prefabs/steps.tscn"),
 	get_parent()
@@ -61,6 +66,7 @@ func _process(delta: float):
 	# Movement
 	var dir := Input.get_vector(&"gme_left", &"gme_right", &"gme_up", &"gme_down")
 
+	# Display footsteps when moving
 	if not dir.is_zero_approx():
 		if _steps_counter > 0:
 			_steps_counter -= delta

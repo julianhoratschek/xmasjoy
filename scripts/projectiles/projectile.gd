@@ -21,6 +21,7 @@ var piercing := false
 ## How much an enemy is pushed back on hit
 var pushback := 20.0
 
+## How long until this object is released
 var lifetime := 3.0
 
 ## How long this projectile will persist

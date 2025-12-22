@@ -21,6 +21,7 @@ var threat_levels: Dictionary = JSON.parse_string(
 
 
 ## Set spawner values according to current threat-level
+# TODO: hardwire these?
 func update_spawners() -> void:
 	var spawners = $Spawners
 
@@ -35,6 +36,10 @@ func update_spawners() -> void:
 
 # Set static variables to point at player
 func _ready() -> void:
+	var joy_level_label = $CanvasLayer/JoyLevelLabel
+	joy_level_label.pivot_offset = joy_level_label.size / 2
+
+	# TODO: do we still use this?
 	Enemy.player = $Player
 
 	update_spawners()
