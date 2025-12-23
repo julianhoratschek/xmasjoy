@@ -32,6 +32,16 @@ func _release(obj_index: int):
 	_free_idx.push_back(obj_index)
 
 
+func release_all():
+	_free_idx.clear()
+	_free_idx.append_array(range(_obj_list.size()))
+
+	for i in range(_obj_list.size()):
+		var obj = _obj_list[i]
+		obj.hide()
+		obj.process_mode = Node.PROCESS_MODE_DISABLED
+
+
 ## Double object list, instantiate all new object here
 # TODO: Instantiate only on-use?
 func resize_list() -> PooledObject:

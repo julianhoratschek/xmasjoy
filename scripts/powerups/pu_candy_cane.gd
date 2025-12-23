@@ -6,27 +6,37 @@ Level-Up:
 	- Candy Cone rotates faster
 """
 
-# TODO: Does this need an object pool?
-
 ## Prefab to spawn CandyCone-"Bullet"
-const CandyCanePrefab := preload("res://prefabs/projectiles/candy_cane.tscn")
+# const CandyCanePrefab := preload("res://prefabs/projectiles/candy_cane.tscn")
 
-## Reference of spawned CandyCone-"Bullet"
-var _candy_cane: Node2D = null
+@onready
+var pool := ObjectPool.new(
+	preload("res://prefabs/projectiles/candy_cane.tscn"),
+	get_parent())
 
-## How much _candy_cane rotates per call
-var _rotation_amount := 0.0
+var _canes: Array[Projectile] = []
+
+var _rotation_amount := 0.01
 
 
 ## Rotate _candy_cane around player
 func process_callback():
-	_candy_cane.rotate(_rotation_amount)
+	# _candy_cane.rotate(_rotation_amount)
+	for cane in _canes:
+		cane.rotate(_rotation_amount)
 
 
-## Levelling up will make _candy_cane rotate faster
 func stack_callback():
-	if not _candy_cane:
-		_candy_cane = CandyCanePrefab.instantiate()
-		add_sibling(_candy_cane)
 	super()
-	_rotation_amount = -level * 0.01
+
+	pool.release_all()
+	_canes.clear()
+
+	var ang := (2.0 * PI) / level
+	var rot := 0.0
+
+	for n in range(level):
+		var new_candy := pool.pop() as Projectile
+		_canes.append(new_candy)
+		new_candy.rotation = rot
+		rot += ang

@@ -18,15 +18,22 @@ var pool: ObjectPool = ObjectPool.new(
 
 func process_callback():
 	var parent = get_parent()
-	var star = pool.pop()
-	if !star:
-		return
 
-	star.position = parent.position
-	star.direction = parent.position.direction_to(
-		parent.get_global_mouse_position())
+	var spread_angle = deg_to_rad(5.0 + level * 5.0)
+	var direction = parent.position.direction_to(
+		parent.get_global_mouse_position()
+	).angle()
 
+	for n in range(level):
+		var star = pool.pop()
+		if !star:
+			return
 
-func stack_callback():
-	super()
-	frequency = 0.8 - level * 0.05
+		var rot_dir = direction
+
+		if level > 1:
+			var ratio = float(n) / float(level - 1)
+			rot_dir += (ratio - 0.5) * spread_angle
+
+		star.position = parent.position
+		star.direction = Vector2.RIGHT.rotated(rot_dir)

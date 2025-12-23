@@ -48,6 +48,7 @@ var xp := 0
 func create_xp() -> void:
 	var new_xp = XPBallPrefab.instantiate()
 
+	$AnimatedSprite2D.animation_finished.disconnect(create_xp)
 	new_xp.position = position
 	new_xp.amount = xp
 	player.add_sibling(new_xp)

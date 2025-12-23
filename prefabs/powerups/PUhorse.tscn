@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ohmegi1p36n"]
+
+[ext_resource type="Script" uid="uid://dtkf8ppv0i6r8" path="res://scripts/powerups/pu_horse.gd" id="1_2uems"]
+[ext_resource type="Texture2D" uid="uid://cs5rg2lspx7aq" path="res://assets/sprites/horse.png" id="2_o88av"]
+
+[node name="PUHorse" type="Node"]
+script = ExtResource("1_2uems")
+display_name = "Horsie"
+display_image = ExtResource("2_o88av")

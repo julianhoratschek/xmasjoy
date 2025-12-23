@@ -1,9 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://qn7151hkp3d"]
+[gd_resource type="SpriteFrames" load_steps=19 format=3 uid="uid://qn7151hkp3d"]
 
 [ext_resource type="Texture2D" uid="uid://dfb7yqhx2x8q5" path="res://assets/sprites/coal_cobold.png" id="1_ckdif"]
 [ext_resource type="Texture2D" uid="uid://b7c6ru6lyp630" path="res://assets/sprites/burn.png" id="2_bkfjp"]
 [ext_resource type="Texture2D" uid="uid://biicxm2vm0iex" path="res://assets/sprites/match_unlit.png" id="3_iy2xj"]
 [ext_resource type="Texture2D" uid="uid://bb5bg0kjuet6l" path="res://assets/sprites/snowman.png" id="4_81wbb"]
+[ext_resource type="Texture2D" uid="uid://bygkaainpqdd5" path="res://assets/sprites/tree.png" id="5_bkfjp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdjcr"]
 atlas = ExtResource("2_bkfjp")
@@ -36,6 +37,26 @@ region = Rect2(64, 0, 64, 84)
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4llo"]
 atlas = ExtResource("3_iy2xj")
 region = Rect2(0, 0, 64, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy2xj"]
+atlas = ExtResource("5_bkfjp")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81wbb"]
+atlas = ExtResource("5_bkfjp")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87xgv"]
+atlas = ExtResource("5_bkfjp")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv0lj"]
+atlas = ExtResource("5_bkfjp")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u77ae"]
+atlas = ExtResource("5_bkfjp")
+region = Rect2(0, 0, 64, 64)
 
 [resource]
 animations = [{
@@ -92,5 +113,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"snowman",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy2xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81wbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87xgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv0lj")
+}],
+"loop": true,
+"name": &"tree_moving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u77ae")
+}],
+"loop": true,
+"name": &"tree_standing",
 "speed": 5.0
 }]

@@ -7,6 +7,7 @@ Base class for all Powerups
 
 ## Global modifier for damage
 static var damage_modifier := 0
+static var frequency_modifier := 0.0
 
 ## Name to show on powerup-selection
 @export var display_name := ""
@@ -24,7 +25,6 @@ static var damage_modifier := 0
 var _counter := 0.0
 
 
-
 ## Virtual, override with own logic for Powerup
 func process_callback():
 	pass
@@ -40,8 +40,8 @@ func _process(delta: float) -> void:
 	if level == 0:
 		return
 
-	_counter += delta
-	if _counter < frequency:
+	_counter -= delta
+	if _counter > 0:
 		return
-	_counter -= frequency
+	_counter += frequency - Powerup.frequency_modifier
 	process_callback()
