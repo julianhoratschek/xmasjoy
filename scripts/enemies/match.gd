@@ -9,17 +9,21 @@ Staged enemy, that grows faster, if it was hit once
 var _hit_fn = _on_first_hit
 
 
+## Set own starting animation
+func _ready() -> void:
+	_starting_animation = "match_unlit"
+
+
 ## Reset animation and hit-function
 func _on_spawn():
 	super()
 	_hit_fn = _on_first_hit
-	$AnimatedSprite2D.animation = "unlit"
 
 
 ## Called on first bullet hit, changes behaviour
 func _on_first_hit(projectile: Projectile) -> void:
 	super.hit_by(projectile)
-	$AnimatedSprite2D.animation = "lit"
+	$AnimatedSprite2D.animation = "match_lit"
 	speed = 120
 	damage = 30
 	_hit_fn = _on_hit

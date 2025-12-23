@@ -1,0 +1,96 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://qn7151hkp3d"]
+
+[ext_resource type="Texture2D" uid="uid://dfb7yqhx2x8q5" path="res://assets/sprites/coal_cobold.png" id="1_ckdif"]
+[ext_resource type="Texture2D" uid="uid://b7c6ru6lyp630" path="res://assets/sprites/burn.png" id="2_bkfjp"]
+[ext_resource type="Texture2D" uid="uid://biicxm2vm0iex" path="res://assets/sprites/match_unlit.png" id="3_iy2xj"]
+[ext_resource type="Texture2D" uid="uid://bb5bg0kjuet6l" path="res://assets/sprites/snowman.png" id="4_81wbb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdjcr"]
+atlas = ExtResource("2_bkfjp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86slv"]
+atlas = ExtResource("2_bkfjp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg7nf"]
+atlas = ExtResource("2_bkfjp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3bh2"]
+atlas = ExtResource("2_bkfjp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pybce"]
+atlas = ExtResource("2_bkfjp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_622pl"]
+atlas = ExtResource("2_bkfjp")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dibx"]
+atlas = ExtResource("3_iy2xj")
+region = Rect2(64, 0, 64, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4llo"]
+atlas = ExtResource("3_iy2xj")
+region = Rect2(0, 0, 64, 84)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ckdif")
+}],
+"loop": true,
+"name": &"coal_cobold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdjcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86slv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg7nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3bh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pybce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_622pl")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dibx")
+}],
+"loop": true,
+"name": &"match_lit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4llo")
+}],
+"loop": true,
+"name": &"match_unlit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_81wbb")
+}],
+"loop": true,
+"name": &"snowman",
+"speed": 5.0
+}]

@@ -26,6 +26,9 @@
 - Streichholz
     - Ist sehr langsam
     - Wird es getroffen fängt es Feuer und rennt auf den Spieler zu
+- Böse Tanne
+    - Schaut immer nur kurz aus dem Boden
+    - Bewegt sich unterirdisch auf den Spieler zu
 - Eiskristall
     - Beweg sich langsam
     - rollt, zielt und schießt dann auf Spieler zu

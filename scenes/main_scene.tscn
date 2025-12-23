@@ -186,7 +186,7 @@ player = NodePath("../../Player")
 present = NodePath("../../Present")
 
 [node name="JoyTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 60.0
 autostart = true
 
 [connection signal="collected" from="Present" to="CanvasLayer/PresentArrow" method="_on_present_collected"]
