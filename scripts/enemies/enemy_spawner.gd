@@ -58,10 +58,12 @@ func _process(delta: float) -> void:
 	_spawn_counter -= _spawn_timer
 	_spawn_timer = randf_range(spawn_timer_min, spawn_timer_max)
 
-	if pool.active_instances() >= spawn_max:
-		return
+	var n_instances := pool.active_instances()
 
 	for n in range(randi_range(min_enemies, max_enemies)):
+		if n_instances >= spawn_max:
+			return
+
 		var new_enemy: Enemy = pool.pop()
 		if !new_enemy:
 			return
@@ -70,3 +72,5 @@ func _process(delta: float) -> void:
 		var spawn_pos: Vector2 = Enemy.player.position + dir * radius
 
 		new_enemy.position = spawn_pos
+		n_instances += 1
+

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8ok7da1wvrfg"]
+
+[ext_resource type="Script" uid="uid://bg5ojxjxrsahq" path="res://scripts/enemies/snowflake.gd" id="1_mu1ng"]
+[ext_resource type="SpriteFrames" uid="uid://qn7151hkp3d" path="res://assets/spritesheets/enemies.tres" id="1_wfwm0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfwm0"]
+radius = 27.0
+
+[node name="Snowflake" type="Node2D"]
+script = ExtResource("1_mu1ng")
+spawn_health = 120
+spawn_speed = 240
+spawn_damage = 30
+spawn_xp = 30
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_wfwm0")
+animation = &"snowflake"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wfwm0")

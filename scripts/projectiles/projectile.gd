@@ -7,22 +7,22 @@ Base class for all projectiles
 
 
 ## Flying speed of projectile
-var speed := 400
+@export var speed := 400
 
 ## Damage done when projectile hits enemy
-var damage := 25
+@export var damage := 25
+
+## True is projectile won't despawn when an enemy was hit
+@export var piercing := false
+
+## How much an enemy is pushed back on hit
+@export var pushback := 10.0
+
+## How long until this object is released
+@export var lifetime := 3.0
 
 ## Direction the projectile is travelling in
 var direction := Vector2.ZERO
-
-## True is projectile won't despawn when an enemy was hit
-var piercing := false
-
-## How much an enemy is pushed back on hit
-var pushback := 20.0
-
-## How long until this object is released
-var lifetime := 3.0
 
 ## How long this projectile will persist
 var _lifetime_counter := 3.0
@@ -51,4 +51,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	if enemy is Enemy:
 		enemy.hit_by(self)
+		if not piercing:
+			release()
 

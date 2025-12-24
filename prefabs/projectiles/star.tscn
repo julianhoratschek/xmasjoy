@@ -10,6 +10,7 @@ radius = 14.0
 [node name="Star" instance=ExtResource("1_chsll")]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("2_yc6km")
+damage = 20
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_en74b")

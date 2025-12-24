@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dyg44obofc0f4"]
+[gd_scene load_steps=27 format=4 uid="uid://dyg44obofc0f4"]
 
 [ext_resource type="Script" uid="uid://dp0vvs3nqle57" path="res://scripts/main_scene.gd" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://sk6rnkgigrj1" path="res://assets/sprites/bg_tiles_floor.png" id="2_6u1mn"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bpfjk6sj24lri" path="res://prefabs/powerups/PUNutCracker.tscn" id="8_4w45t"]
 [ext_resource type="PackedScene" uid="uid://cqrtal6tnitnr" path="res://ui/powerup_selection.tscn" id="8_18nlu"]
 [ext_resource type="PackedScene" uid="uid://lber3wov7auy" path="res://prefabs/enemies/dig_tree.tscn" id="8_bcnxi"]
+[ext_resource type="PackedScene" uid="uid://c8ok7da1wvrfg" path="res://prefabs/enemies/snowflake.tscn" id="9_k6f3i"]
 [ext_resource type="PackedScene" uid="uid://cq7rjoc8ufoo" path="res://prefabs/powerups/PUStar.tscn" id="9_r6p65"]
 [ext_resource type="PackedScene" uid="uid://cji4pf8qr4ufm" path="res://prefabs/powerups/PUTinSoldier.tscn" id="10_si52b"]
 [ext_resource type="PackedScene" uid="uid://bkk4ucvu62i4k" path="res://prefabs/powerups/PUCookie.tscn" id="12_01n6w"]
@@ -137,6 +138,9 @@ enemy_type = ExtResource("5_18nlu")
 
 [node name="EvilTreeSpawner" parent="Spawners" instance=ExtResource("3_18nlu")]
 enemy_type = ExtResource("8_bcnxi")
+
+[node name="SnowflakeSpawner" parent="Spawners" instance=ExtResource("3_18nlu")]
+enemy_type = ExtResource("9_k6f3i")
 
 [node name="Player" parent="." instance=ExtResource("2_pw63i")]
 position = Vector2(233, 247)

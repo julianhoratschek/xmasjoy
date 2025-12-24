@@ -24,7 +24,7 @@ func _on_spawn():
 func _on_first_hit(projectile: Projectile) -> void:
 	super.hit_by(projectile)
 	$AnimatedSprite2D.animation = "match_lit"
-	speed = 120
+	speed = 160
 	damage = 30
 	_hit_fn = _on_hit
 

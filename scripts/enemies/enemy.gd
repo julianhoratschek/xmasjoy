@@ -48,7 +48,6 @@ var xp := 0
 func create_xp() -> void:
 	var new_xp = XPBallPrefab.instantiate()
 
-	$AnimatedSprite2D.animation_finished.disconnect(create_xp)
 	new_xp.position = position
 	new_xp.amount = xp
 	player.add_sibling(new_xp)
@@ -67,16 +66,13 @@ func death_animation() -> void:
 	$Area2D.process_mode = Node.PROCESS_MODE_DISABLED
 
 	animated_sprite.play("death")
-	animated_sprite.animation_finished.connect(create_xp,
-		ConnectFlags.CONNECT_ONE_SHOT | ConnectFlags.CONNECT_DEFERRED)
+	if not animated_sprite.animation_finished.is_connected(create_xp):
+		animated_sprite.animation_finished.connect(create_xp, ConnectFlags.CONNECT_ONE_SHOT | ConnectFlags.CONNECT_DEFERRED)
 
 
 
 ## Called when enemy is hit by projectile
 func hit_by(projectile: Projectile) -> void:
-	if not projectile.piercing:
-		projectile.release()
-
 	health -= projectile.get_damage()
 	if health <= 0:
 		death_animation()

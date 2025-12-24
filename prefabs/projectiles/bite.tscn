@@ -38,6 +38,11 @@ size = Vector2(30, 20)
 [node name="Bite" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_dmbi3")
+speed = 0
+damage = 20
+piercing = true
+pushback = 0.0
+lifetime = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cup78")

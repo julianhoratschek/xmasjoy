@@ -10,11 +10,6 @@ Managed by StarPU
 var rotation_speed := 5.0
 
 
-func _ready() -> void:
-	pushback = 10
-	speed = 400
-	damage = 25
-
 
 ## Add star rotation
 func _process(delta: float) -> void:

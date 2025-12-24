@@ -10,6 +10,10 @@ height = 64.0
 
 [node name="CandyCane" instance=ExtResource("1_n3eo1")]
 script = ExtResource("2_rorqi")
+speed = 0
+damage = 5
+piercing = true
+pushback = 0.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_mnxuk")
