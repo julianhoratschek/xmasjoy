@@ -51,6 +51,10 @@ layout_mode = 2
 [node name="PowerupTile2" parent="VBoxContainer/PowerupTiles" instance=ExtResource("1_5rakw")]
 layout_mode = 2
 
+[node name="PowerupTile3" parent="VBoxContainer/PowerupTiles" instance=ExtResource("1_5rakw")]
+layout_mode = 2
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="powerup_selected" from="VBoxContainer/PowerupTiles/PowerupTile" to="." method="_on_powerup_selected"]
 [connection signal="powerup_selected" from="VBoxContainer/PowerupTiles/PowerupTile2" to="." method="_on_powerup_selected"]
+[connection signal="powerup_selected" from="VBoxContainer/PowerupTiles/PowerupTile3" to="." method="_on_powerup_selected"]

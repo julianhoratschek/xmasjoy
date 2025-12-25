@@ -7,25 +7,27 @@ UI-Element to present player with different Powerups to choose
 ## Emitted when a powerup was chosen
 signal powerup_selected(powerup: String)
 
+@export var powerups: Array[Powerup] = []
+
 ## Used to find powerups (as children of player)
 # TODO: Rather have another node for this?
 # TODO: Or have all powerups setup manually?
-@export var player: Player = null
+# @export var player: Player = null
 
 ## List of all found powerups
-var content: Array[Powerup] = []
+# var content: Array[Powerup] = []
 
 
 ## Sets new selection (does not check for double-selections)
 func reroll() -> void:
 	for tile in $VBoxContainer/PowerupTiles.get_children():
-		tile.content = content.pick_random()
+		tile.content = powerups.pick_random()
 
 
 ## Fill content with powerup-nodes found as children of player
-func _ready() -> void:
-	for pu_node in player.find_children("Pu*", "Powerup", false):
-		content.append(pu_node)
+# func _ready() -> void:
+# 	for pu_node in player.find_children("Pu*", "Powerup", false):
+# 		content.append(pu_node)
 
 
 ## Called when a powerup was selected (by PowerupTile)

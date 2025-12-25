@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://qn7151hkp3d"]
+[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://qn7151hkp3d"]
 
 [ext_resource type="Texture2D" uid="uid://dfb7yqhx2x8q5" path="res://assets/sprites/coal_cobold.png" id="1_ckdif"]
 [ext_resource type="Texture2D" uid="uid://b7c6ru6lyp630" path="res://assets/sprites/burn.png" id="2_bkfjp"]
@@ -42,6 +42,18 @@ region = Rect2(0, 0, 64, 84)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rodep"]
 atlas = ExtResource("4_81wbb")
 region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of22o"]
+atlas = ExtResource("4_81wbb")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j06k"]
+atlas = ExtResource("4_81wbb")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqoc6"]
+atlas = ExtResource("4_81wbb")
+region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjgto"]
 atlas = ExtResource("4_81wbb")
@@ -143,10 +155,19 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rodep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of22o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j06k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqoc6")
 }],
 "loop": true,
 "name": &"snowman_stage_1",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,

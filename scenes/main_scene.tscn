@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dyg44obofc0f4"]
+[gd_scene load_steps=31 format=4 uid="uid://dyg44obofc0f4"]
 
 [ext_resource type="Script" uid="uid://dp0vvs3nqle57" path="res://scripts/main_scene.gd" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://sk6rnkgigrj1" path="res://assets/sprites/bg_tiles_floor.png" id="2_6u1mn"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b6ohmegi1p36n" path="res://prefabs/powerups/PUhorse.tscn" id="14_7nt27"]
 [ext_resource type="Texture2D" uid="uid://breuwu470bsci" path="res://assets/sprites/arrow.png" id="14_si52b"]
 [ext_resource type="Script" uid="uid://s4ojd6p32lrx" path="res://scripts/present_arrow.gd" id="15_01n6w"]
+[ext_resource type="FontFile" uid="uid://d323h10y7hdwm" path="res://assets/fonts/ARCADE_N.TTF" id="21_xdqt8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcnxi"]
 texture = ExtResource("2_6u1mn")
@@ -104,6 +105,24 @@ _data = {
 &"fade_in_out": SubResource("Animation_c1pb6")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adb74"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58gk3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_to7gp"]
+font = ExtResource("21_xdqt8")
+font_color = Color(0.24313726, 0.69803923, 0.32941177, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_w2twt")
 
@@ -162,9 +181,9 @@ frequency = 0.02
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PowerupSelection" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_18nlu")]
+[node name="PowerupSelection" parent="CanvasLayer" node_paths=PackedStringArray("powerups") instance=ExtResource("8_18nlu")]
 visible = false
-player = NodePath("../../Player")
+powerups = [NodePath("../../Player/PuCandyCane"), NodePath("../../Player/PuNutCracker"), NodePath("../../Player/PuStar"), NodePath("../../Player/PuTinSoldier"), NodePath("../../Player/PuHorse"), NodePath("../../Player/PuCookie")]
 
 [node name="JoyLevelLabel" type="Label" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -197,6 +216,23 @@ script = ExtResource("15_01n6w")
 player = NodePath("../../Player")
 present = NodePath("../../Present")
 
+[node name="XPLabel" type="Label" parent="CanvasLayer"]
+custom_minimum_size = Vector2(260, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_adb74")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_58gk3")
+text = "XP: 0/30"
+label_settings = SubResource("LabelSettings_to7gp")
+horizontal_alignment = 2
+
 [node name="JoyTimer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
@@ -204,5 +240,6 @@ autostart = true
 [connection signal="collected" from="Present" to="CanvasLayer/PresentArrow" method="_on_present_collected"]
 [connection signal="teleported" from="Present" to="CanvasLayer/PresentArrow" method="_on_present_teleported"]
 [connection signal="level_up" from="Player" to="." method="_on_player_level_up"]
+[connection signal="xp_collected" from="Player" to="." method="_on_player_xp_collected"]
 [connection signal="powerup_selected" from="CanvasLayer/PowerupSelection" to="." method="_on_powerup_selection_powerup_selected"]
 [connection signal="timeout" from="JoyTimer" to="." method="_on_timer_timeout"]

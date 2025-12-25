@@ -6,6 +6,7 @@ Class for Player-character
 
 ## Emitted when player is leveled up
 signal level_up()
+signal xp_collected(player_xp: int)
 
 ## Movement speed
 var speed := 200.0
@@ -103,3 +104,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			xp = 0
 			_level_xp += 20
 			level_up.emit()
+		else:
+			xp_collected.emit(xp)

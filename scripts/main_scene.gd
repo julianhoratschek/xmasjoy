@@ -54,6 +54,9 @@ func _on_powerup_selection_powerup_selected(powerup: Powerup) -> void:
 func _on_player_level_up() -> void:
 	powerup_selection.show()
 
+func _on_player_xp_collected(player_xp: int) -> void:
+	$CanvasLayer/XPLabel.text = "XP: %d / %d" % [player_xp, $Player._level_xp]
+
 
 ## Increase threat-level periodically
 func _on_timer_timeout() -> void:

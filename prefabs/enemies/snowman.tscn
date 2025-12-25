@@ -16,9 +16,9 @@ spawn_xp = 30
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_mhyh3")
-animation = &"snowman_stage_3"
+animation = &"snowman_stage_1"
 autoplay = "snowman_stage_1"
-frame_progress = 0.2862237
+frame_progress = 0.20407864
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
