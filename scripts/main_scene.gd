@@ -8,7 +8,7 @@ Top-level assignments are made here
 @onready var powerup_selection := $CanvasLayer/PowerupSelection
 
 ## Maximum level for enemy spawners
-const max_threat_level = 7
+const max_threat_level = 19
 
 ## Current level of enemy spawners
 var current_threat := 0
@@ -50,12 +50,19 @@ func _on_powerup_selection_powerup_selected(powerup: Powerup) -> void:
 	$Player.add_powerup(powerup)
 
 
+func _on_present_collected() -> void:
+	powerup_selection.show()
+
+
 # Show PowerupSelection-UI on level-up
 func _on_player_level_up() -> void:
 	powerup_selection.show()
 
-func _on_player_xp_collected(player_xp: int) -> void:
-	$CanvasLayer/XPLabel.text = "XP: %d / %d" % [player_xp, $Player._level_xp]
+
+func _on_player_xp_collected() -> void:
+	$CanvasLayer/XPLabel.text = "XP: %d / %d" % [
+		$Player.xp, 
+		$Player.next_level_xp]
 
 
 ## Increase threat-level periodically

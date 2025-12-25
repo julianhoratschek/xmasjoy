@@ -6,7 +6,7 @@ Class for Player-character
 
 ## Emitted when player is leveled up
 signal level_up()
-signal xp_collected(player_xp: int)
+signal xp_collected()
 
 ## Movement speed
 var speed := 200.0
@@ -21,7 +21,7 @@ var iframes_time := 0.8
 var xp := 0
 
 ## How much XP do we need for the next level?
-var _level_xp := 30
+var next_level_xp := 30
 
 ## Counter for invicibility frames
 var _iframes_counter := 0.0
@@ -100,9 +100,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		xp += body.amount
 		body.collect()
 
-		if xp >= _level_xp:
-			xp = 0
-			_level_xp += 20
+		if xp >= next_level_xp:
+			next_level_xp += next_level_xp
 			level_up.emit()
-		else:
-			xp_collected.emit(xp)
+
+		xp_collected.emit()

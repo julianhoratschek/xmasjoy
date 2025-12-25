@@ -237,6 +237,7 @@ horizontal_alignment = 2
 wait_time = 60.0
 autostart = true
 
+[connection signal="collected" from="Present" to="." method="_on_present_collected"]
 [connection signal="collected" from="Present" to="CanvasLayer/PresentArrow" method="_on_present_collected"]
 [connection signal="teleported" from="Present" to="CanvasLayer/PresentArrow" method="_on_present_teleported"]
 [connection signal="level_up" from="Player" to="." method="_on_player_level_up"]

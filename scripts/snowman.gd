@@ -38,7 +38,7 @@ func _set_stage(new_stage: int) -> void:
 
 	var values = Stages[_stage]
 
-	$AnimatedSprite2D.play(&"animation")
+	$AnimatedSprite2D.play(values[&"animation"])
 	health = values[&"health"]
 	speed = values[&"speed"]
 	damage = values[&"damage"]

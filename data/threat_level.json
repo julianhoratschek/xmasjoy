@@ -4,7 +4,7 @@
 		{
 			"level": 1,
 			"min_enemies": 0,
-			"max_enemies": 2,
+			"max_enemies": 1,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
 			"spawn_max": 2
@@ -12,8 +12,8 @@
 
 		{
 			"level": 2,
-			"min_enemies": 2,
-			"max_enemies": 4,
+			"min_enemies": 0,
+			"max_enemies": 2,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
 			"spawn_max": 4
@@ -22,7 +22,7 @@
 		{
 			"level": 3,
 			"min_enemies": 2,
-			"max_enemies": 6,
+			"max_enemies": 4,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
 			"spawn_max": 8
@@ -30,7 +30,7 @@
 
 		{
 			"level": 4,
-			"min_enemies": 4,
+			"min_enemies": 2,
 			"max_enemies": 6,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
@@ -39,7 +39,7 @@
 
 		{
 			"level": 5,
-			"min_enemies": 4,
+			"min_enemies": 2,
 			"max_enemies": 8,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
@@ -52,26 +52,134 @@
 			"max_enemies": 10,
 			"min_timer": 1.8,
 			"max_timer": 10.0,
-			"spawn_max": 24
+			"spawn_max": 20
 		},
 
 		{
 			"level": 7,
-			"min_enemies": 6,
+			"min_enemies": 4,
 			"max_enemies": 10,
 			"min_timer": 1.8,
 			"max_timer": 8.0,
-			"spawn_max": 30
+			"spawn_max": 24
 		},
 
 		{
 			"level": 8,
-			"min_enemies": 9,
-			"max_enemies": 10,
+			"min_enemies": 4,
+			"max_enemies": 12,
 			"min_timer": 1.8,
 			"max_timer": 8.0,
+			"spawn_max": 28
+		},
+
+		{
+			"level": 9,
+			"min_enemies": 4,
+			"max_enemies": 14,
+			"min_timer": 1.8,
+			"max_timer": 8.0,
+			"spawn_max": 32
+		},
+
+		{
+			"level": 10,
+			"min_enemies": 4,
+			"max_enemies": 16,
+			"min_timer": 1.8,
+			"max_timer": 8.0,
+			"spawn_max": 32
+		},
+
+		{
+			"level": 11,
+			"min_enemies": 6,
+			"max_enemies": 16,
+			"min_timer": 1.4,
+			"max_timer": 6.0,
+			"spawn_max": 34
+		},
+
+		{
+			"level": 12,
+			"min_enemies": 8,
+			"max_enemies": 16,
+			"min_timer": 1.4,
+			"max_timer": 6.0,
+			"spawn_max": 36
+		},
+
+		{
+			"level": 13,
+			"min_enemies": 8,
+			"max_enemies": 18,
+			"min_timer": 1.4,
+			"max_timer": 6.0,
+			"spawn_max": 38
+		},
+
+		{
+			"level": 14,
+			"min_enemies": 10,
+			"max_enemies": 20,
+			"min_timer": 1.2,
+			"max_timer": 4.0,
 			"spawn_max": 40
-		}
+		},
+
+		{
+			"level": 15,
+			"min_enemies": 10,
+			"max_enemies": 20,
+			"min_timer": 1.2,
+			"max_timer": 4.0,
+			"spawn_max": 42
+		},
+
+		{
+			"level": 16,
+			"min_enemies": 10,
+			"max_enemies": 20,
+			"min_timer": 1.2,
+			"max_timer": 4.0,
+			"spawn_max": 44
+		},
+
+		{
+			"level": 17,
+			"min_enemies": 12,
+			"max_enemies": 22,
+			"min_timer": 1.2,
+			"max_timer": 4.0,
+			"spawn_max": 46
+		},
+
+		{
+			"level": 18,
+			"min_enemies": 12,
+			"max_enemies": 22,
+			"min_timer": 1.0,
+			"max_timer": 2.0,
+			"spawn_max": 48
+		},
+
+		{
+			"level": 19,
+			"min_enemies": 12,
+			"max_enemies": 22,
+			"min_timer": 1.0,
+			"max_timer": 2.0,
+			"spawn_max": 48
+		},
+
+		{
+			"level": 20,
+			"min_enemies": 12,
+			"max_enemies": 22,
+			"min_timer": 1.0,
+			"max_timer": 2.0,
+			"spawn_max": 50 
+		},
 	],
 
 	"SnowmanSpawner":
@@ -80,8 +188,8 @@
 			"level": 1,
 			"min_enemies": 0,
 			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
 			"spawn_max": 0
 		},
 
@@ -89,22 +197,13 @@
 			"level": 2,
 			"min_enemies": 0,
 			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
 			"spawn_max": 0
 		},
 
 		{
 			"level": 3,
-			"min_enemies": 0,
-			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
-			"spawn_max": 0
-		},
-
-		{
-			"level": 4,
 			"min_enemies": 0,
 			"max_enemies": 1,
 			"min_timer": 2.0,
@@ -113,7 +212,7 @@
 		},
 
 		{
-			"level": 5,
+			"level": 4,
 			"min_enemies": 0,
 			"max_enemies": 2,
 			"min_timer": 2.0,
@@ -122,73 +221,25 @@
 		},
 
 		{
-			"level": 6,
-			"min_enemies": 1,
-			"max_enemies": 3,
-			"min_timer": 2.0,
-			"max_timer": 8.0,
-			"spawn_max": 4
-		},
-
-		{
-			"level": 7,
-			"min_enemies": 1,
-			"max_enemies": 4,
-			"min_timer": 2.0,
-			"max_timer": 8.0,
-			"spawn_max": 6
-		},
-
-		{
-			"level": 8,
-			"min_enemies": 1,
-			"max_enemies": 4,
-			"min_timer": 2.0,
-			"max_timer": 8.0,
-			"spawn_max": 8
-		}
-	],
-
-	"MatchSpawner":
-	[
-		{
-			"level": 1,
-			"min_enemies": 0,
-			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
-			"spawn_max": 0
-		},
-
-		{
-			"level": 2,
-			"min_enemies": 0,
-			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
-			"spawn_max": 0
-		},
-
-		{
-			"level": 3,
-			"min_enemies": 0,
-			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
-			"spawn_max": 0
-		},
-
-		{
-			"level": 4,
+			"level": 5,
 			"min_enemies": 2,
 			"max_enemies": 4,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
-			"spawn_max": 6
+			"spawn_max": 5
 		},
 
 		{
-			"level": 5,
+			"level": 6,
+			"min_enemies": 2,
+			"max_enemies": 6,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 8
+		},
+
+		{
+			"level": 7,
 			"min_enemies": 4,
 			"max_enemies": 8,
 			"min_timer": 2.0,
@@ -197,42 +248,131 @@
 		},
 
 		{
-			"level": 6,
+			"level": 8,
 			"min_enemies": 4,
 			"max_enemies": 12,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
-			"spawn_max": 22
+			"spawn_max": 16
 		},
 
 		{
-			"level": 7,
-			"min_enemies": 8,
+			"level": 9,
+			"min_enemies": 4,
 			"max_enemies": 12,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
+			"spawn_max": 20
+		},
+
+		{
+			"level": 10,
+			"min_enemies": 6,
+			"max_enemies": 18,
+			"min_timer": 1.4,
+			"max_timer": 8.0,
+			"spawn_max": 24
+		},
+
+		{
+			"level": 11,
+			"min_enemies": 6,
+			"max_enemies": 20,
+			"min_timer": 1.4,
+			"max_timer": 8.0,
 			"spawn_max": 28
 		},
 
 		{
-			"level": 8,
+			"level": 12,
 			"min_enemies": 8,
-			"max_enemies": 12,
-			"min_timer": 2.0,
+			"max_enemies": 22,
+			"min_timer": 1.4,
 			"max_timer": 8.0,
 			"spawn_max": 34
-		}
+		},
+
+		{
+			"level": 13,
+			"min_enemies": 10,
+			"max_enemies": 22,
+			"min_timer": 1.4,
+			"max_timer": 8.0,
+			"spawn_max": 38
+		},
+
+		{
+			"level": 14,
+			"min_enemies": 10,
+			"max_enemies": 22,
+			"min_timer": 1.0,
+			"max_timer": 6.0,
+			"spawn_max": 40
+		},
+
+		{
+			"level": 15,
+			"min_enemies": 10,
+			"max_enemies": 24,
+			"min_timer": 1.0,
+			"max_timer": 6.0,
+			"spawn_max": 42
+		},
+
+		{
+			"level": 16,
+			"min_enemies": 10,
+			"max_enemies": 24,
+			"min_timer": 1.0,
+			"max_timer": 6.0,
+			"spawn_max": 44
+		},
+
+		{
+			"level": 17,
+			"min_enemies": 12,
+			"max_enemies": 24,
+			"min_timer": 1.0,
+			"max_timer": 6.0,
+			"spawn_max": 46
+		},
+
+		{
+			"level": 18,
+			"min_enemies": 12,
+			"max_enemies": 26,
+			"min_timer": 1.0,
+			"max_timer": 4.0,
+			"spawn_max": 48
+		},
+
+		{
+			"level": 19,
+			"min_enemies": 12,
+			"max_enemies": 28,
+			"min_timer": 1.0,
+			"max_timer": 4.0,
+			"spawn_max": 48
+		},
+
+		{
+			"level": 20,
+			"min_enemies": 12,
+			"max_enemies": 30,
+			"min_timer": 1.0,
+			"max_timer": 4.0,
+			"spawn_max": 50 
+		},
 	],
 
-
-	"EvilTreeSpawner":
+	"MatchSpawner":
 	[
 		{
 			"level": 1,
 			"min_enemies": 0,
 			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 1,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
 			"spawn_max": 0
 		},
 
@@ -240,8 +380,8 @@
 			"level": 2,
 			"min_enemies": 0,
 			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
 			"spawn_max": 0
 		},
 
@@ -249,8 +389,8 @@
 			"level": 3,
 			"min_enemies": 0,
 			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
 			"spawn_max": 0
 		},
 
@@ -258,46 +398,337 @@
 			"level": 4,
 			"min_enemies": 0,
 			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
 			"spawn_max": 0
 		},
 
 		{
 			"level": 5,
-			"min_enemies": 2,
-			"max_enemies": 4,
-			"min_timer": 5.0,
+			"min_enemies": 0,
+			"max_enemies": 2,
+			"min_timer": 2.0,
 			"max_timer": 10.0,
-			"spawn_max": 9
+			"spawn_max": 2
 		},
 
 		{
 			"level": 6,
-			"min_enemies": 2,
+			"min_enemies": 0,
+			"max_enemies": 2,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 4
+		},
+
+		{
+			"level": 7,
+			"min_enemies": 0,
+			"max_enemies": 4,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 8
+		},
+
+		{
+			"level": 8,
+			"min_enemies": 4,
 			"max_enemies": 8,
-			"min_timer": 5.0,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 12
+		},
+
+		{
+			"level": 9,
+			"min_enemies": 4,
+			"max_enemies": 12,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 16
+		},
+
+		{
+			"level": 10,
+			"min_enemies": 6,
+			"max_enemies": 14,
+			"min_timer": 2.0,
 			"max_timer": 10.0,
 			"spawn_max": 18
 		},
 
 		{
-			"level": 7,
+			"level": 11,
 			"min_enemies": 6,
-			"max_enemies": 12,
+			"max_enemies": 18,
 			"min_timer": 2.0,
-			"max_timer": 8.0,
+			"max_timer": 10.0,
 			"spawn_max": 24
 		},
 
 		{
-			"level": 8,
-			"min_enemies": 6,
+			"level": 12,
+			"min_enemies": 8,
 			"max_enemies": 18,
 			"min_timer": 2.0,
-			"max_timer": 8.0,
+			"max_timer": 10.0,
+			"spawn_max": 28
+		},
+
+		{
+			"level": 13,
+			"min_enemies": 10,
+			"max_enemies": 20,
+			"min_timer": 2.0, 
+			"max_timer": 10.0,
 			"spawn_max": 30
-		}
+		},
+
+		{
+			"level": 14,
+			"min_enemies": 10,
+			"max_enemies": 22,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 32
+		},
+
+		{
+			"level": 15,
+			"min_enemies": 10,
+			"max_enemies": 24,
+			"min_timer": 1.0,
+			"max_timer": 8.0,
+			"spawn_max": 34
+		},
+
+		{
+			"level": 16,
+			"min_enemies": 10,
+			"max_enemies": 26,
+			"min_timer": 1.0,
+			"max_timer": 8.0,
+			"spawn_max": 36
+		},
+
+		{
+			"level": 17,
+			"min_enemies": 12,
+			"max_enemies": 24,
+			"min_timer": 1.0,
+			"max_timer": 8.0,
+			"spawn_max": 40
+		},
+
+		{
+			"level": 18,
+			"min_enemies": 12,
+			"max_enemies": 26,
+			"min_timer": 1.0,
+			"max_timer": 8.0,
+			"spawn_max": 44
+		},
+
+		{
+			"level": 19,
+			"min_enemies": 12,
+			"max_enemies": 28,
+			"min_timer": 1.0,
+			"max_timer": 6.0,
+			"spawn_max": 48
+		},
+
+		{
+			"level": 20,
+			"min_enemies": 12,
+			"max_enemies": 30,
+			"min_timer": 1.0,
+			"max_timer": 4.0,
+			"spawn_max": 50 
+		},
+	],
+
+	"EvilTreeSpawner":
+	[
+		{
+			"level": 1,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 2,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 3,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 4,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 5,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 6,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 7,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 8,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 9,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 4
+		},
+
+		{
+			"level": 10,
+			"min_enemies": 0,
+			"max_enemies": 2,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 2
+		},
+
+		{
+			"level": 11,
+			"min_enemies": 2,
+			"max_enemies": 4,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 4
+		},
+
+		{
+			"level": 12,
+			"min_enemies": 2,
+			"max_enemies": 6,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 8
+		},
+
+		{
+			"level": 13,
+			"min_enemies": 4,
+			"max_enemies": 8,
+			"min_timer": 2.0, 
+			"max_timer": 10.0,
+			"spawn_max": 12
+		},
+
+		{
+			"level": 14,
+			"min_enemies": 6,
+			"max_enemies": 10,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 14
+		},
+
+		{
+			"level": 15,
+			"min_enemies": 8,
+			"max_enemies": 12,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 16
+		},
+
+		{
+			"level": 16,
+			"min_enemies": 8,
+			"max_enemies": 14,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 18
+		},
+
+		{
+			"level": 17,
+			"min_enemies": 10,
+			"max_enemies": 16,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 24
+		},
+
+		{
+			"level": 18,
+			"min_enemies": 12,
+			"max_enemies": 18,
+			"min_timer": 1.0,
+			"max_timer": 8.0,
+			"spawn_max": 28
+		},
+
+		{
+			"level": 19,
+			"min_enemies": 12,
+			"max_enemies": 24,
+			"min_timer": 1.0,
+			"max_timer": 8.0,
+			"spawn_max": 32
+		},
+
+		{
+			"level": 20,
+			"min_enemies": 14,
+			"max_enemies": 30,
+			"min_timer": 1.0,
+			"max_timer": 8.0,
+			"spawn_max": 38
+		},
 	],
 
 	"SnowflakeSpawner": 
@@ -306,72 +737,180 @@
 			"level": 1,
 			"min_enemies": 0,
 			"max_enemies": 0,
-			"min_timer": 0,
-			"max_timer": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
 			"spawn_max": 0
 		},
 
 		{
 			"level": 2,
 			"min_enemies": 0,
-			"max_enemies": 1,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 3,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 4,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 5,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 6,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 7,
+			"min_enemies": 0,
+			"max_enemies": 0,
+			"min_timer": 100.0,
+			"max_timer": 100.0,
+			"spawn_max": 0
+		},
+
+		{
+			"level": 8,
+			"min_enemies": 0,
+			"max_enemies": 2,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
 			"spawn_max": 2
 		},
 
 		{
-			"level": 3,
+			"level": 9,
 			"min_enemies": 0,
-			"max_enemies": 2,
+			"max_enemies": 4,
 			"min_timer": 2.0,
 			"max_timer": 10.0,
-			"spawn_max": 3
-		},
-
-		{
-			"level": 4,
-			"min_enemies": 0,
-			"max_enemies": 3,
-			"min_timer": 2.0,
-			"max_timer": 8.0,
 			"spawn_max": 4
 		},
 
 		{
-			"level": 5,
+			"level": 10,
 			"min_enemies": 2,
-			"max_enemies": 4,
+			"max_enemies": 8,
 			"min_timer": 2.0,
-			"max_timer": 8.0,
-			"spawn_max": 6
-		},
-
-		{
-			"level": 6,
-			"min_enemies": 2,
-			"max_enemies": 6,
-			"min_timer": 2.0,
-			"max_timer": 8.0,
+			"max_timer": 10.0,
 			"spawn_max": 8
 		},
 
 		{
-			"level": 7,
-			"min_enemies": 4,
-			"max_enemies": 8,
+			"level": 11,
+			"min_enemies": 2,
+			"max_enemies": 10,
 			"min_timer": 2.0,
-			"max_timer": 8.0,
-			"spawn_max": 8
+			"max_timer": 10.0,
+			"spawn_max": 12
 		},
 
 		{
-			"level": 8,
+			"level": 12,
 			"min_enemies": 4,
-			"max_enemies": 8,
+			"max_enemies": 14,
 			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 16
+		},
+
+		{
+			"level": 13,
+			"min_enemies": 6,
+			"max_enemies": 18,
+			"min_timer": 2.0, 
+			"max_timer": 10.0,
+			"spawn_max": 18
+		},
+
+		{
+			"level": 14,
+			"min_enemies": 8,
+			"max_enemies": 20,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 20
+		},
+
+		{
+			"level": 15,
+			"min_enemies": 10,
+			"max_enemies": 22,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 22
+		},
+
+		{
+			"level": 16,
+			"min_enemies": 10,
+			"max_enemies": 24,
+			"min_timer": 2.0,
+			"max_timer": 10.0,
+			"spawn_max": 24
+		},
+
+		{
+			"level": 17,
+			"min_enemies": 12,
+			"max_enemies": 26,
+			"min_timer": 1.0,
 			"max_timer": 8.0,
-			"spawn_max": 10
-		}
+			"spawn_max": 28
+		},
+
+		{
+			"level": 18,
+			"min_enemies": 12,
+			"max_enemies": 28,
+			"min_timer": 1.0,
+			"max_timer": 8.0,
+			"spawn_max": 34
+		},
+
+		{
+			"level": 19,
+			"min_enemies": 12,
+			"max_enemies": 30,
+			"min_timer": 1.0,
+			"max_timer": 6.0,
+			"spawn_max": 38
+		},
+
+		{
+			"level": 20,
+			"min_enemies": 12,
+			"max_enemies": 30,
+			"min_timer": 1.0,
+			"max_timer": 4.0,
+			"spawn_max": 44
+		},
 	],
 }
