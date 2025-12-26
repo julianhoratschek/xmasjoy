@@ -7,7 +7,7 @@ Very simple indexed object pool
 
 
 ## Starting size of pools
-const PoolInitSize := 10
+const PoolInitSize := 5
 
 ## Scene to instantiate in pool
 # TODO: Allow different scenes?
@@ -32,6 +32,7 @@ func _release(obj_index: int):
 	_free_idx.push_back(obj_index)
 
 
+## Free all current objects and add them back into the pool
 func release_all():
 	_free_idx.clear()
 	_free_idx.append_array(range(_obj_list.size()))
@@ -42,7 +43,7 @@ func release_all():
 		obj.process_mode = Node.PROCESS_MODE_DISABLED
 
 
-## Double object list, instantiate all new object here
+## Double object list size, instantiate all new object here
 # TODO: Instantiate only on-use?
 func resize_list() -> PooledObject:
 	var old_size = _obj_list.size()

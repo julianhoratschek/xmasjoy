@@ -1,31 +1,30 @@
 class_name CandyCanePU extends Powerup
 
 """
-Spawns a rotating candy cone
-Level-Up:
-	- Candy Cone rotates faster
+Spawns rotating candy cones around the player
 """
 
-## Prefab to spawn CandyCone-"Bullet"
-# const CandyCanePrefab := preload("res://prefabs/projectiles/candy_cane.tscn")
-
+## Pool for bullets
 @onready
 var pool := ObjectPool.new(
 	preload("res://prefabs/projectiles/candy_cane.tscn"),
 	get_parent())
 
+
+## Access all currently spawned canes
 var _canes: Array[Projectile] = []
 
+## How much every cane rotates per callback
 var _rotation_amount := 0.01
 
 
 ## Rotate _candy_cane around player
 func process_callback():
-	# _candy_cane.rotate(_rotation_amount)
 	for cane in _canes:
 		cane.rotate(_rotation_amount)
 
 
+## Clear and reset all canes per level-up around the player
 func stack_callback():
 	super()
 

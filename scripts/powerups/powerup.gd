@@ -7,6 +7,8 @@ Base class for all Powerups
 
 ## Global modifier for damage
 static var damage_modifier := 0
+
+## Global modifier for freqeuncy of callbacks
 static var frequency_modifier := 0.0
 
 ## Name to show on powerup-selection

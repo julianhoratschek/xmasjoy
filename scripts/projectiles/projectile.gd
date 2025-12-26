@@ -28,6 +28,7 @@ var direction := Vector2.ZERO
 var _lifetime_counter := 3.0
 
 
+## Damage including modifiers
 func get_damage() -> int:
 	return damage + Powerup.damage_modifier
 

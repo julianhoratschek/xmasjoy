@@ -84,7 +84,7 @@ func hit_by(projectile: Projectile) -> void:
 
 ## Reset base values on respawn from pool
 func _on_spawn():
-	$AnimatedSprite2D.animation = _starting_animation
+	$AnimatedSprite2D.play(_starting_animation)
 	$Area2D.process_mode = Node.PROCESS_MODE_INHERIT
 	health = spawn_health
 	speed = spawn_speed

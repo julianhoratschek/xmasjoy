@@ -4,11 +4,10 @@ class_name StarPU extends Powerup
 """
 Most basic Powerup
 Shoots Stars in the direction of the cursor
-Level-Up:
-	- Higher frequency of star-shootings
 """
 
 
+## Object pool for bullets
 @onready
 var pool: ObjectPool = ObjectPool.new(
 	preload("res://prefabs/projectiles/star.tscn"),
@@ -16,13 +15,14 @@ var pool: ObjectPool = ObjectPool.new(
 )
 
 
+## Spawn as many bullets as levels, shotgun-style in direction of the mouse
+## pointer
 func process_callback():
 	var parent = get_parent()
 
 	var spread_angle = deg_to_rad(5.0 + level * 5.0)
 	var direction = parent.position.direction_to(
-		parent.get_global_mouse_position()
-	).angle()
+		parent.get_global_mouse_position()).angle()
 
 	for n in range(level):
 		var star = pool.pop()

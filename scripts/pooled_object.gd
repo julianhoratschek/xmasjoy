@@ -9,7 +9,7 @@ Holds a reference to its pool and its index-ID
 ## Reference to parent ObjectPool
 var _object_pool: ObjectPool = null
 
-## Index of self in ObjectPool
+## Index of self in ObjectPool, handled by object pool
 var _pool_index := 0
 
 

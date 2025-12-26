@@ -39,7 +39,6 @@ func _ready() -> void:
 	var joy_level_label = $CanvasLayer/JoyLevelLabel
 	joy_level_label.pivot_offset = joy_level_label.size / 2
 
-	# TODO: do we still use this?
 	Enemy.player = $Player
 
 	update_spawners()
@@ -50,15 +49,17 @@ func _on_powerup_selection_powerup_selected(powerup: Powerup) -> void:
 	$Player.add_powerup(powerup)
 
 
+## Called when a present is collected
 func _on_present_collected() -> void:
 	powerup_selection.show()
 
 
-# Show PowerupSelection-UI on level-up
+## Show PowerupSelection-UI on level-up
 func _on_player_level_up() -> void:
 	powerup_selection.show()
 
 
+## Update label when xp is collected
 func _on_player_xp_collected() -> void:
 	$CanvasLayer/XPLabel.text = "XP: %d / %d" % [
 		$Player.xp, 

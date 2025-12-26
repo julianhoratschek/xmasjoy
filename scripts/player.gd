@@ -4,8 +4,14 @@ class_name Player extends Node2D
 Class for Player-character
 """
 
+## How often shall we create footsteps while moving?
+const StepsFrequency := 0.2
+
+
 ## Emitted when player is leveled up
 signal level_up()
+
+## Emitted then player collects xp
 signal xp_collected()
 
 ## Movement speed
@@ -25,10 +31,6 @@ var next_level_xp := 30
 
 ## Counter for invicibility frames
 var _iframes_counter := 0.0
-
-
-## How often shall we create footsteps while moving?
-const StepsFrequency := 0.2
 
 ## Counter for StepsFrequency
 var _steps_counter := 0.0
@@ -58,8 +60,9 @@ func hit_by(enemy: Enemy) -> void:
 	_iframes_counter = iframes_time
 
 
+## Set maximum size for footsteps pool
 func _ready() -> void:
-	_steps_pool.max_size = 50
+	_steps_pool.max_size = 20
 
 
 ## Simple movement and call to Powerups

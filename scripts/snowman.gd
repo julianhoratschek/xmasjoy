@@ -4,9 +4,10 @@ extends Enemy
 """
 Enemy in multiple stages
 """
-# TODO: The stages
 
+## Stages and values of each stage
 static var Stages = [
+	# Stage 1 (Full snowman)
 	{
 		&"animation": &"snowman_stage_1",
 		&"health": 80,
@@ -14,6 +15,7 @@ static var Stages = [
 		&"damage": 20
 	},
 
+	# Stage 2 (One segment missing)
 	{
 		&"animation": &"snowman_stage_2",
 		&"health": 60,
@@ -21,6 +23,7 @@ static var Stages = [
 		&"damage": 10
 	},
 
+	# Stage 3 (Only head remaining)
 	{
 		&"animation": &"snowman_stage_3",
 		&"health": 40,
@@ -29,10 +32,11 @@ static var Stages = [
 	}
 ]
 
-
+## Current stage (Array-index)
 var _stage := 0
 
 
+## Set current stage to new_stage, assign values
 func _set_stage(new_stage: int) -> void:
 	_stage = new_stage
 
@@ -44,6 +48,7 @@ func _set_stage(new_stage: int) -> void:
 	damage = values[&"damage"]
 
 
+## Override hit_by to have stage-transitions
 func hit_by(projectile: Projectile) -> void:
 	health -= projectile.get_damage()
 
@@ -58,9 +63,11 @@ func hit_by(projectile: Projectile) -> void:
 
 
 
+## Reset stage to 0 (stage 1) on spawn
 func _on_spawn():
 	super()
 	_set_stage(0)
+
 
 ## Override to flip while moving
 func _process(delta: float) -> void:

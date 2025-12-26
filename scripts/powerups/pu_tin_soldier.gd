@@ -7,12 +7,14 @@ Level-Up:
 	- More random bullets spawn at once
 """
 
+## Object pool for bullets
 @onready
 var pool := ObjectPool.new(
 	preload("res://prefabs/projectiles/tin_soldier_bullet.tscn"),
 	get_parent().get_parent())
 
 
+## Spawn as many bullets as levels on this powerup
 func process_callback():
 	var parent = get_parent()
 	for num in range(level):

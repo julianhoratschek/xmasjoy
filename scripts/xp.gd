@@ -6,7 +6,6 @@ XP-Collectables
 """
 
 # TODO: As poolable resource?
-# TODO: For presents?
 
 ## Amount of xp received when picking this instance up
 var amount := 0

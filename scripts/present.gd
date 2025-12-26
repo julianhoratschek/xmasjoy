@@ -27,7 +27,7 @@ signal teleported()
 signal collected()
 
 
-## Player Instance
+## Player Instance, needed to teleport the next present next to the player
 @export var player: Player = null
 
 ## Time to wait between animation changes
@@ -39,8 +39,8 @@ signal collected()
 @export var max_teleport_range := 1200.0
 
 ## Waiting time between collection and new spawn
-@export var min_teleport_delay := 5.0
-@export var max_teleport_delay := 15.0
+@export var min_teleport_delay := 15.0
+@export var max_teleport_delay := 50.0
 
 ## Values to add per collection step
 @export var value_step := 4.0
