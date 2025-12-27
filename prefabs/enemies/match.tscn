@@ -18,6 +18,7 @@ position = Vector2(0, -19)
 sprite_frames = ExtResource("2_5dibx")
 animation = &"match_unlit"
 autoplay = "match_unlit"
+frame_progress = 0.7420348
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

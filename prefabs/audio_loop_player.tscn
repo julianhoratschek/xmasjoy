@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvmnutgvsrlb3"]
+
+[ext_resource type="Script" uid="uid://dc8o6hnh03aol" path="res://scripts/audio_loop_player.gd" id="1_2uxw1"]
+
+[node name="AudioLoopPlayer" type="Node2D"]
+script = ExtResource("1_2uxw1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_finished"]

@@ -10,6 +10,10 @@ XP-Collectables
 ## Amount of xp received when picking this instance up
 var amount := 0
 
+var _speed := 100
+
+var move_to_player := false
+
 
 ## Free self as soon as the text faded out
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -25,3 +29,13 @@ func collect() -> void:
 	$ScoreLabel.text = "+%d" % amount
 	$ScoreLabel.show()
 	$ScoreLabel/AnimationPlayer.play("fade")
+
+
+func _process(delta: float) -> void:
+	if !move_to_player:
+		return
+
+	var player_position := Enemy.player.position
+
+	position += position.direction_to(player_position) * _speed * delta
+

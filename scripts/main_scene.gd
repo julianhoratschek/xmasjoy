@@ -5,6 +5,18 @@ Main Scene script
 Top-level assignments are made here
 """
 
+# TODO:
+# - List of powerups
+# - Fix bites
+# - Fix level scaling
+# - Player and threatlevel
+# - UI for timekeeping?
+# - Mainscreen
+# - Pause/Options screen
+# - Savefile
+# - OOB management
+# - Structures
+
 @onready var powerup_selection := $CanvasLayer/PowerupSelection
 
 ## Maximum level for enemy spawners

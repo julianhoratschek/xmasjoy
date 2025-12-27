@@ -10,7 +10,6 @@ height = 26.0
 
 [node name="TinSoldierBullet" instance=ExtResource("1_ne7vr")]
 script = ExtResource("2_cv6bj")
-damage = 20
 pushback = 20.0
 
 [node name="Sprite2D" parent="." index="0"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dyg44obofc0f4"]
+[gd_scene load_steps=37 format=4 uid="uid://dyg44obofc0f4"]
 
 [ext_resource type="Script" uid="uid://dp0vvs3nqle57" path="res://scripts/main_scene.gd" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://sk6rnkgigrj1" path="res://assets/sprites/bg_tiles_floor.png" id="2_6u1mn"]
@@ -20,7 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://b6ohmegi1p36n" path="res://prefabs/powerups/PUhorse.tscn" id="14_7nt27"]
 [ext_resource type="Texture2D" uid="uid://breuwu470bsci" path="res://assets/sprites/arrow.png" id="14_si52b"]
 [ext_resource type="Script" uid="uid://s4ojd6p32lrx" path="res://scripts/present_arrow.gd" id="15_01n6w"]
+[ext_resource type="PackedScene" uid="uid://dvmnutgvsrlb3" path="res://prefabs/audio_loop_player.tscn" id="17_u0fll"]
+[ext_resource type="AudioStream" uid="uid://ccoce6m6hroc7" path="res://assets/music/christmas-453699.mp3" id="18_6p3nn"]
+[ext_resource type="AudioStream" uid="uid://geno0qm8q5t3" path="res://assets/music/christmas-new-year-456464.mp3" id="19_k67gn"]
+[ext_resource type="AudioStream" uid="uid://b61vn7fshycni" path="res://assets/music/christmas-show-438871.mp3" id="20_k3g67"]
 [ext_resource type="FontFile" uid="uid://d323h10y7hdwm" path="res://assets/fonts/ARCADE_N.TTF" id="21_xdqt8"]
+[ext_resource type="Shader" uid="uid://cysqusnjj0p3s" path="res://assets/shader/snowfall.gdshader" id="26_6p3nn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcnxi"]
 texture = ExtResource("2_6u1mn")
@@ -38,6 +43,16 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_7nt27"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_bcnxi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k67gn"]
+shader = ExtResource("26_6p3nn")
+shader_parameter/spread = 0.5
+shader_parameter/size = 0.85400003986648
+shader_parameter/snow_color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+shader_parameter/snow_transparency = 0.02200002479499996
+shader_parameter/speed = 0.5
+shader_parameter/wind = 0.0
+shader_parameter/num_of_layers = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_18nlu"]
 font = ExtResource("7_c16ls")
@@ -136,6 +151,12 @@ navigation_enabled = false
 
 [node name="Present" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_4w45t")]
 player = NodePath("../Player")
+min_teleport_range = 1200.0
+max_teleport_range = 2000.0
+min_teleport_delay = 5.0
+max_teleport_delay = 20.0
+value_step = 5.0
+step_duration = 0.1
 
 [node name="Spawners" type="Node" parent="."]
 
@@ -178,6 +199,20 @@ frequency = 0.02
 [node name="PuHorse" parent="Player" instance=ExtResource("14_7nt27")]
 
 [node name="PuCookie" parent="Player" instance=ExtResource("12_01n6w")]
+
+[node name="AudioLoopPlayer" parent="Player" instance=ExtResource("17_u0fll")]
+process_mode = 3
+audio_files = Array[AudioStream]([ExtResource("18_6p3nn"), ExtResource("19_k67gn"), ExtResource("20_k3g67")])
+
+[node name="SnowLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="SnowLayer"]
+material = SubResource("ShaderMaterial_k67gn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

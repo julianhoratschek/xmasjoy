@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://desqo32gyby16"]
+[gd_scene load_steps=9 format=3 uid="uid://desqo32gyby16"]
 
 [ext_resource type="Script" uid="uid://dkm103ryikf8l" path="res://scripts/player.gd" id="1_4dohe"]
 [ext_resource type="Texture2D" uid="uid://dleqw3xv1jk8e" path="res://assets/sprites/elf_front.png" id="1_72ieh"]
@@ -33,7 +33,10 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r66lb"]
-height = 40.0
+height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dohe"]
+radius = 301.16608
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_4dohe")
@@ -61,12 +64,23 @@ value = 100.0
 rounded = true
 show_percentage = false
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HitArea" type="Area2D" parent="."]
 position = Vector2(0, 5)
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="HitShape" type="CollisionShape2D" parent="HitArea"]
 position = Vector2(0, -22)
 shape = SubResource("CapsuleShape2D_r66lb")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="CollectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollectionShape" type="CollisionShape2D" parent="CollectionArea"]
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_4dohe")
+
+[connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_entered"]
+[connection signal="area_entered" from="CollectionArea" to="." method="_on_collection_area_entered"]
+[connection signal="area_exited" from="CollectionArea" to="." method="_on_collection_area_exited"]

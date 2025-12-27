@@ -9,10 +9,10 @@ height = 54.0
 [node name="DigTree" type="Node2D"]
 scale = Vector2(2.7, 2.7)
 script = ExtResource("1_er7hl")
-spawn_health = 80
+spawn_health = 120
 spawn_speed = 130
 spawn_damage = 20
-spawn_xp = 40
+spawn_xp = 70
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_2bli2")

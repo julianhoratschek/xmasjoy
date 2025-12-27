@@ -6,4 +6,4 @@ Basis-Powerup increasing damage on all powerups
 
 
 func stack_callback():
-	Powerup.damage_modifier += 1
+	Powerup.damage_modifier += 3

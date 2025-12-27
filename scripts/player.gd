@@ -29,6 +29,8 @@ var xp := 0
 ## How much XP do we need for the next level?
 var next_level_xp := 30
 
+var current_level := 0
+
 ## Counter for invicibility frames
 var _iframes_counter := 0.0
 
@@ -93,7 +95,7 @@ func _process(delta: float):
 
 ## Hit-detection on player
 # TODO: Extend for enemy-projectiles?
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_hit_area_entered(area: Area2D) -> void:
 	var body = area.get_parent()
 
 	if body is Enemy and _iframes_counter <= 0.0:
@@ -104,7 +106,23 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		body.collect()
 
 		if xp >= next_level_xp:
-			next_level_xp += next_level_xp
+			var next_level := current_level + 1
+			next_level_xp = 15 * next_level ** 2 + 50 * next_level + 0
+			current_level = next_level
 			level_up.emit()
 
 		xp_collected.emit()
+
+
+func _on_collection_area_entered(area: Area2D) -> void:
+	var body = area.get_parent()
+
+	if body is XPBall:
+		body.move_to_player = true
+
+
+func _on_collection_area_exited(area: Area2D) -> void:
+	var body = area.get_parent()
+
+	if body is XPBall:
+		body.move_to_player = false

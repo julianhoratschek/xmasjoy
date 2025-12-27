@@ -33,13 +33,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3n7u"]
-size = Vector2(30, 20)
+size = Vector2(61.5, 36.5)
 
 [node name="Bite" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_dmbi3")
 speed = 0
-damage = 20
+damage = 15
 piercing = true
 pushback = 0.0
 lifetime = 1.0

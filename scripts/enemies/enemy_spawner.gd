@@ -6,7 +6,7 @@ Spawner class for different Enemies
 
 ## Radius around the player to spawn enemies
 # TODO: make relative to screen/viewport resolution?
-static var radius := 700.0
+static var radius := 1200.0
 
 ## Packed scene to show which enemy to spawn
 @export var enemy_type: PackedScene = null

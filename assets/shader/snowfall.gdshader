@@ -63,6 +63,7 @@ void fragment() {
     // Calculate final color
     float snow_intensity = clamp(length(snow_accumulation), 0.0, 1.0);
     vec4 base_color = texture(TEXTURE, UV);
+	base_color.a = 0.0;
 
     // Apply transparency effect to the snow color
     vec4 transparency_color = vec4(snow_color.rgb * (1.0 + snow_transparency), snow_intensity);
