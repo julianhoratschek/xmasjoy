@@ -16,7 +16,7 @@ Top-level assignments are made here
 # - Savefile
 # - Structures
 
-@onready var powerup_selection := $CanvasLayer/PowerupSelection
+@onready var powerup_selection := $UILayer/PowerupSelection
 
 ## Maximum level for enemy spawners
 const max_threat_level = 19
@@ -47,7 +47,7 @@ func update_spawners() -> void:
 
 # Set static variables to point at player
 func _ready() -> void:
-	var joy_level_label = $CanvasLayer/JoyLevelLabel
+	var joy_level_label = $UILayer/JoyLevelLabel
 	joy_level_label.pivot_offset = joy_level_label.size / 2
 
 	Enemy.player = $Player
@@ -58,6 +58,7 @@ func _ready() -> void:
 # Bubbled up from PowerupSelection-UI
 func _on_powerup_selection_powerup_selected(powerup: Powerup) -> void:
 	$Player.add_powerup(powerup)
+	$UILayer/PowerupTray.add_powerup(powerup)
 
 
 ## Called when a present is collected
@@ -72,7 +73,7 @@ func _on_player_level_up() -> void:
 
 ## Update label when xp is collected
 func _on_player_xp_collected() -> void:
-	$CanvasLayer/XPLabel.text = "XP: %d / %d" % [
+	$UILayer/XPLabel.text = "XP: %d / %d" % [
 		$Player.xp, 
 		$Player.next_level_xp]
 
@@ -85,8 +86,8 @@ func _on_timer_timeout() -> void:
 
 	current_threat += 1
 
-	var label = $CanvasLayer/JoyLevelLabel
+	var label = $UILayer/JoyLevelLabel
 	label.text = "Joy Level %d" % current_threat
-	$CanvasLayer/JoyLevelLabel/AnimationPlayer.play("fade_in_out")
+	$UILayer/JoyLevelLabel/AnimationPlayer.play("fade_in_out")
 
 	update_spawners()

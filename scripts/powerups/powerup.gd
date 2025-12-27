@@ -5,6 +5,9 @@ class_name Powerup extends Node
 Base class for all Powerups
 """
 
+
+signal leveled_up(new_level: int)
+
 ## Global modifier for damage
 static var damage_modifier := 0
 
@@ -35,6 +38,7 @@ func process_callback():
 ## Override with own logic for levelling up Powerup
 func stack_callback():
 	level += 1
+	leveled_up.emit(level)
 
 
 ## Simple frequency counter. Does nothing if level is 0

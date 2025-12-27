@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dyg44obofc0f4"]
+[gd_scene load_steps=38 format=4 uid="uid://dyg44obofc0f4"]
 
 [ext_resource type="Script" uid="uid://dp0vvs3nqle57" path="res://scripts/main_scene.gd" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://sk6rnkgigrj1" path="res://assets/sprites/bg_tiles_floor.png" id="2_6u1mn"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://b61vn7fshycni" path="res://assets/music/christmas-show-438871.mp3" id="20_k3g67"]
 [ext_resource type="FontFile" uid="uid://d323h10y7hdwm" path="res://assets/fonts/ARCADE_N.TTF" id="21_xdqt8"]
 [ext_resource type="Shader" uid="uid://cysqusnjj0p3s" path="res://assets/shader/snowfall.gdshader" id="26_6p3nn"]
+[ext_resource type="PackedScene" uid="uid://bj3yq7xm5c7es" path="res://ui/powerup_tray.tscn" id="27_k67gn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcnxi"]
 texture = ExtResource("2_6u1mn")
@@ -214,13 +215,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="PowerupSelection" parent="CanvasLayer" node_paths=PackedStringArray("powerups") instance=ExtResource("8_18nlu")]
+[node name="PowerupSelection" parent="UILayer" node_paths=PackedStringArray("powerups") instance=ExtResource("8_18nlu")]
 visible = false
 powerups = [NodePath("../../Player/PuCandyCane"), NodePath("../../Player/PuNutCracker"), NodePath("../../Player/PuStar"), NodePath("../../Player/PuTinSoldier"), NodePath("../../Player/PuHorse"), NodePath("../../Player/PuCookie")]
 
-[node name="JoyLevelLabel" type="Label" parent="CanvasLayer"]
+[node name="JoyLevelLabel" type="Label" parent="UILayer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -239,19 +240,19 @@ label_settings = SubResource("LabelSettings_18nlu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/JoyLevelLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UILayer/JoyLevelLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_e1cbu")
 }
 
-[node name="PresentArrow" type="Sprite2D" parent="CanvasLayer" node_paths=PackedStringArray("player", "present")]
+[node name="PresentArrow" type="Sprite2D" parent="UILayer" node_paths=PackedStringArray("player", "present")]
 position = Vector2(227, 82)
 texture = ExtResource("14_si52b")
 script = ExtResource("15_01n6w")
 player = NodePath("../../Player")
 present = NodePath("../../Present")
 
-[node name="XPLabel" type="Label" parent="CanvasLayer"]
+[node name="XPLabel" type="Label" parent="UILayer"]
 custom_minimum_size = Vector2(260, 0)
 anchors_preset = 3
 anchor_left = 1.0
@@ -268,14 +269,16 @@ text = "XP: 0/30"
 label_settings = SubResource("LabelSettings_to7gp")
 horizontal_alignment = 2
 
+[node name="PowerupTray" parent="UILayer" instance=ExtResource("27_k67gn")]
+
 [node name="JoyTimer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
 
 [connection signal="collected" from="Present" to="." method="_on_present_collected"]
-[connection signal="collected" from="Present" to="CanvasLayer/PresentArrow" method="_on_present_collected"]
-[connection signal="teleported" from="Present" to="CanvasLayer/PresentArrow" method="_on_present_teleported"]
+[connection signal="collected" from="Present" to="UILayer/PresentArrow" method="_on_present_collected"]
+[connection signal="teleported" from="Present" to="UILayer/PresentArrow" method="_on_present_teleported"]
 [connection signal="level_up" from="Player" to="." method="_on_player_level_up"]
 [connection signal="xp_collected" from="Player" to="." method="_on_player_xp_collected"]
-[connection signal="powerup_selected" from="CanvasLayer/PowerupSelection" to="." method="_on_powerup_selection_powerup_selected"]
+[connection signal="powerup_selected" from="UILayer/PowerupSelection" to="." method="_on_powerup_selection_powerup_selected"]
 [connection signal="timeout" from="JoyTimer" to="." method="_on_timer_timeout"]
