@@ -11,7 +11,7 @@ var _hit_fn = _on_first_hit
 
 ## Set own starting animation
 func _ready() -> void:
-	_starting_animation = "match_unlit"
+	_starting_animation = &"match_unlit"
 
 
 ## Reset animation and hit-function

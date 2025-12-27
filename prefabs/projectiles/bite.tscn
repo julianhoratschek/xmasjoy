@@ -28,12 +28,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_7sr16")
 }],
 "loop": false,
-"name": &"default",
+"name": &"bite",
 "speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3n7u"]
-size = Vector2(61.5, 36.5)
+size = Vector2(30.5, 29.5)
 
 [node name="Bite" type="Node2D"]
 scale = Vector2(2, 2)
@@ -45,15 +45,18 @@ pushback = 0.0
 lifetime = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.60784316)
 sprite_frames = SubResource("SpriteFrames_cup78")
-autoplay = "default"
-frame = 2
-frame_progress = 1.0
+animation = &"bite"
+autoplay = "bite"
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.25, -0.75)
 shape = SubResource("RectangleShape2D_r3n7u")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_bite_finished"]

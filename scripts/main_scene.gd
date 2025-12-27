@@ -6,15 +6,14 @@ Top-level assignments are made here
 """
 
 # TODO:
-# - List of powerups
 # - Fix bites
-# - Fix level scaling
+# - Pause/Options screen
+# - game over
+# - List of powerups
+# - OOB management
 # - Player and threatlevel
 # - UI for timekeeping?
-# - Mainscreen
-# - Pause/Options screen
 # - Savefile
-# - OOB management
 # - Structures
 
 @onready var powerup_selection := $CanvasLayer/PowerupSelection

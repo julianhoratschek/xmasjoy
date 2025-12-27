@@ -1,15 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgehirhdh0mxb"]
+[gd_scene load_steps=8 format=3 uid="uid://dgehirhdh0mxb"]
 
 [ext_resource type="FontFile" uid="uid://cbxioj0mtjvhn" path="res://assets/fonts/Kingthings Christmas 2.2.ttf" id="1_0dkrt"]
+[ext_resource type="Script" uid="uid://dw1r2yboep7wc" path="res://scripts/ui/main_menu.gd" id="1_rmr83"]
 [ext_resource type="Theme" uid="uid://duu8gyiknjyp5" path="res://assets/themes/main_menu_theme.tres" id="1_t7e0r"]
 [ext_resource type="Shader" uid="uid://cysqusnjj0p3s" path="res://assets/shader/snowfall.gdshader" id="3_wk0pr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_wk0pr"]
-font = ExtResource("1_0dkrt")
-font_size = 200
-font_color = Color(0.7176471, 0, 0, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="AudioStream" uid="uid://ccoce6m6hroc7" path="res://assets/music/christmas-453699.mp3" id="5_8uxxo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmr83"]
 shader = ExtResource("3_wk0pr")
@@ -21,6 +16,13 @@ shader_parameter/speed = 0.5
 shader_parameter/wind = 0.0
 shader_parameter/num_of_layers = 10
 
+[sub_resource type="LabelSettings" id="LabelSettings_wk0pr"]
+font = ExtResource("1_0dkrt")
+font_size = 200
+font_color = Color(0.7176471, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -28,6 +30,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rmr83")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_rmr83")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -77,13 +102,10 @@ text = "Exit
 "
 alignment = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8uxxo")
+autoplay = true
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_rmr83")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_exit_button_pressed"]

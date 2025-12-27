@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="XMasWrapper"
-run/main_scene="uid://dyg44obofc0f4"
+run/main_scene="uid://dgehirhdh0mxb"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
