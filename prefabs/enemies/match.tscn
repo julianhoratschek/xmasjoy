@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://csuwhfosrvmjc"]
 
-[ext_resource type="Script" uid="uid://uo6s62vomb80" path="res://scripts/enemies/match.gd" id="1_5dibx"]
+[ext_resource type="Script" uid="uid://dt3gqcd3xgtpk" path="res://scripts/enemies/match.gd" id="1_5dibx"]
 [ext_resource type="SpriteFrames" uid="uid://qn7151hkp3d" path="res://assets/spritesheets/enemies.tres" id="2_5dibx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lnchr"]
@@ -11,7 +11,6 @@ script = ExtResource("1_5dibx")
 spawn_health = 120
 spawn_speed = 20
 spawn_damage = 5
-spawn_xp = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)

@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyr7pgfoyyod8"]
+
+[ext_resource type="FontFile" uid="uid://cbxioj0mtjvhn" path="res://assets/fonts/Kingthings Christmas 2.2.ttf" id="1_e20le"]
+[ext_resource type="Script" uid="uid://dvv866uc2jlup" path="res://scripts/ui/game_over_screen.gd" id="1_rmaqg"]
+[ext_resource type="FontFile" uid="uid://d323h10y7hdwm" path="res://assets/fonts/ARCADE_N.TTF" id="2_rmaqg"]
+[ext_resource type="Theme" uid="uid://duu8gyiknjyp5" path="res://assets/themes/main_menu_theme.tres" id="3_sq8h3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0dv5y"]
+font = ExtResource("1_e20le")
+font_size = 220
+font_color = Color(0.7717454, 0.09641833, 2.8878452e-07, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mkoo4"]
+font = ExtResource("2_rmaqg")
+font_size = 32
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rmaqg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6392157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="CaptionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Oh Joyful!"
+label_settings = SubResource("LabelSettings_0dv5y")
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_mkoo4")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_sq8h3")
+text = "Play again!"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_sq8h3")
+text = "Quit Game"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

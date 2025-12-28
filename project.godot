@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1200
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://udkgfjlq7fdd"
+mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 
 [input]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lber3wov7auy"]
 
 [ext_resource type="SpriteFrames" uid="uid://qn7151hkp3d" path="res://assets/spritesheets/enemies.tres" id="1_2bli2"]
-[ext_resource type="Script" uid="uid://blsq1hdt1r253" path="res://scripts/enemies/dig_tree.gd" id="1_er7hl"]
+[ext_resource type="Script" uid="uid://c6ark7yyaeqgx" path="res://scripts/enemies/dig_tree.gd" id="1_er7hl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_er7hl"]
 height = 54.0
@@ -12,7 +12,7 @@ script = ExtResource("1_er7hl")
 spawn_health = 120
 spawn_speed = 130
 spawn_damage = 20
-spawn_xp = 70
+spawn_xp = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_2bli2")

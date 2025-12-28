@@ -64,6 +64,7 @@ func _teleport() -> void:
 
 	$Area2D.process_mode = Node.PROCESS_MODE_INHERIT
 	$TextureProgressBar.value = 0
+	$TutorialSprite2D.modulate = Color(1, 1, 1, 0)
 
 	show()
 	teleported.emit()
@@ -74,12 +75,22 @@ func _teleport() -> void:
 func _on_area_entered(_area: Area2D):
 	if _state == State.Waiting:
 		_state = State.InRange
+		create_tween().tween_property(
+			$TutorialSprite2D,
+			"modulate",
+			Color(1, 1, 1, 1),
+			0.2)
 
 
 ## Player exited collection area
 func _on_area_exited(_area: Area2D):
 	if _state == State.InRange:
 		_state = State.Waiting
+		create_tween().tween_property(
+			$TutorialSprite2D,
+			"modulate",
+			Color(1, 1, 1, 0),
+			0.2)
 
 
 ## A change occurred on the progress bar, tests if the present was fully

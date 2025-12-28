@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bevvd5kv6smxy"]
+[gd_scene load_steps=21 format=3 uid="uid://bevvd5kv6smxy"]
 
-[ext_resource type="Script" uid="uid://bvngjf2t5xaq3" path="res://scripts/present.gd" id="1_kkpt8"]
+[ext_resource type="Script" uid="uid://btyaxen737jid" path="res://scripts/present.gd" id="1_kkpt8"]
 [ext_resource type="Texture2D" uid="uid://bqwcsbu3yuvqy" path="res://assets/sprites/present.png" id="1_s487t"]
 [ext_resource type="Texture2D" uid="uid://bscd4htq1jtxv" path="res://assets/sprites/progress_bar.png" id="3_yetri"]
+[ext_resource type="Texture2D" uid="uid://byb50bfmiuwel" path="res://assets/sprites/tut_cursor.png" id="4_nr4nm"]
 
 [sub_resource type="Gradient" id="Gradient_kkpt8"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -200,6 +201,70 @@ _data = {
 &"shake": SubResource("Animation_yetri")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr4nm"]
+atlas = ExtResource("4_nr4nm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uirpw"]
+atlas = ExtResource("4_nr4nm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sb8c"]
+atlas = ExtResource("4_nr4nm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf8mp"]
+atlas = ExtResource("4_nr4nm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukwms"]
+atlas = ExtResource("4_nr4nm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2k2x"]
+atlas = ExtResource("4_nr4nm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g78l"]
+atlas = ExtResource("4_nr4nm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkvrp"]
+atlas = ExtResource("4_nr4nm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hf8mp"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_nr4nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uirpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sb8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf8mp")
+}, {
+"duration": 12.0,
+"texture": SubResource("AtlasTexture_ukwms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2k2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g78l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkvrp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="Present" type="Node2D"]
 script = ExtResource("1_kkpt8")
 
@@ -237,6 +302,13 @@ offset_bottom = -52.0
 fill_mode = 4
 texture_progress = ExtResource("3_yetri")
 tint_progress = Color(1, 1, 1, 0.5294118)
+
+[node name="TutorialSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(47, -34)
+sprite_frames = SubResource("SpriteFrames_hf8mp")
+autoplay = "default"
+frame_progress = 0.6229511
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]

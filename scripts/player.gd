@@ -14,6 +14,10 @@ signal level_up()
 ## Emitted then player collects xp
 signal xp_collected()
 
+
+signal dead()
+
+
 ## Movement speed
 var speed := 200.0
 
@@ -56,8 +60,8 @@ func hit_by(enemy: Enemy) -> void:
 	$HealthBar.value = health
 
 	if health <= 0:
-		# TODO: Game over
-		pass
+		dead.emit()
+		return
 
 	_iframes_counter = iframes_time
 
@@ -126,3 +130,12 @@ func _on_collection_area_exited(area: Area2D) -> void:
 
 	if body is XPBall:
 		body.move_to_player = false
+
+
+func _on_speech_finished() -> void:
+	var tween := create_tween().tween_property(
+		$SpeechLabel,
+		"modulate",
+		Color(0, 0, 0, 0),
+		0.8)
+	tween.finished.connect($SpeechLabel.queue_free)

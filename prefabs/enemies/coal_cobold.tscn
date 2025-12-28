@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dmhyrxsnqhd02"]
 
-[ext_resource type="Script" uid="uid://diqeo6aecqf57" path="res://scripts/enemies/coal_cobold.gd" id="1_7fpcf"]
+[ext_resource type="Script" uid="uid://plhhoui8juxi" path="res://scripts/enemies/coal_cobold.gd" id="1_7fpcf"]
 [ext_resource type="SpriteFrames" uid="uid://qn7151hkp3d" path="res://assets/spritesheets/enemies.tres" id="2_any7d"]
 
 [sub_resource type="Animation" id="Animation_64qmn"]
@@ -70,6 +70,7 @@ radius = 21.023796
 
 [node name="CoalCobold" type="Node2D"]
 script = ExtResource("1_7fpcf")
+spawn_xp = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_any7d")

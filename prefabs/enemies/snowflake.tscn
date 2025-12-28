@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8ok7da1wvrfg"]
 
-[ext_resource type="Script" uid="uid://bg5ojxjxrsahq" path="res://scripts/enemies/snowflake.gd" id="1_mu1ng"]
+[ext_resource type="Script" uid="uid://bjqg3aekfm8en" path="res://scripts/enemies/snowflake.gd" id="1_mu1ng"]
 [ext_resource type="SpriteFrames" uid="uid://qn7151hkp3d" path="res://assets/spritesheets/enemies.tres" id="1_wfwm0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfwm0"]
@@ -11,7 +11,7 @@ script = ExtResource("1_mu1ng")
 spawn_health = 120
 spawn_speed = 240
 spawn_damage = 30
-spawn_xp = 50
+spawn_xp = 15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_wfwm0")

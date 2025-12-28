@@ -1,6 +1,6 @@
-[gd_scene load_steps=38 format=4 uid="uid://dyg44obofc0f4"]
+[gd_scene load_steps=39 format=4 uid="uid://dyg44obofc0f4"]
 
-[ext_resource type="Script" uid="uid://dp0vvs3nqle57" path="res://scripts/main_scene.gd" id="1_w2twt"]
+[ext_resource type="Script" uid="uid://c1gnpo3cfd688" path="res://scripts/main_scene.gd" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://sk6rnkgigrj1" path="res://assets/sprites/bg_tiles_floor.png" id="2_6u1mn"]
 [ext_resource type="PackedScene" uid="uid://desqo32gyby16" path="res://prefabs/player.tscn" id="2_pw63i"]
 [ext_resource type="PackedScene" uid="uid://wlwt2d04wt54" path="res://prefabs/enemies/enemy_spawner.tscn" id="3_18nlu"]
@@ -18,15 +18,16 @@
 [ext_resource type="PackedScene" uid="uid://bkk4ucvu62i4k" path="res://prefabs/powerups/PUCookie.tscn" id="12_01n6w"]
 [ext_resource type="PackedScene" uid="uid://bevvd5kv6smxy" path="res://prefabs/present.tscn" id="13_4w45t"]
 [ext_resource type="PackedScene" uid="uid://b6ohmegi1p36n" path="res://prefabs/powerups/PUhorse.tscn" id="14_7nt27"]
-[ext_resource type="Texture2D" uid="uid://breuwu470bsci" path="res://assets/sprites/arrow.png" id="14_si52b"]
-[ext_resource type="Script" uid="uid://s4ojd6p32lrx" path="res://scripts/present_arrow.gd" id="15_01n6w"]
+[ext_resource type="Texture2D" uid="uid://cvech4e18o74p" path="res://assets/sprites/arrow.png" id="14_si52b"]
+[ext_resource type="Script" uid="uid://bh1nwbquxu2xb" path="res://scripts/present_arrow.gd" id="15_01n6w"]
 [ext_resource type="PackedScene" uid="uid://dvmnutgvsrlb3" path="res://prefabs/audio_loop_player.tscn" id="17_u0fll"]
 [ext_resource type="AudioStream" uid="uid://ccoce6m6hroc7" path="res://assets/music/christmas-453699.mp3" id="18_6p3nn"]
 [ext_resource type="AudioStream" uid="uid://geno0qm8q5t3" path="res://assets/music/christmas-new-year-456464.mp3" id="19_k67gn"]
 [ext_resource type="AudioStream" uid="uid://b61vn7fshycni" path="res://assets/music/christmas-show-438871.mp3" id="20_k3g67"]
 [ext_resource type="FontFile" uid="uid://d323h10y7hdwm" path="res://assets/fonts/ARCADE_N.TTF" id="21_xdqt8"]
-[ext_resource type="Shader" uid="uid://cysqusnjj0p3s" path="res://assets/shader/snowfall.gdshader" id="26_6p3nn"]
+[ext_resource type="Shader" uid="uid://vnsefegkpprn" path="res://assets/shader/snowfall.gdshader" id="26_6p3nn"]
 [ext_resource type="PackedScene" uid="uid://bj3yq7xm5c7es" path="res://ui/powerup_tray.tscn" id="27_k67gn"]
+[ext_resource type="PackedScene" uid="uid://dyr7pgfoyyod8" path="res://ui/game_over_screen.tscn" id="28_k3g67"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcnxi"]
 texture = ExtResource("2_6u1mn")
@@ -122,16 +123,8 @@ _data = {
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adb74"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58gk3"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_to7gp"]
 font = ExtResource("21_xdqt8")
@@ -217,68 +210,76 @@ grow_vertical = 2
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="PowerupSelection" parent="UILayer" node_paths=PackedStringArray("powerups") instance=ExtResource("8_18nlu")]
-visible = false
-powerups = [NodePath("../../Player/PuCandyCane"), NodePath("../../Player/PuNutCracker"), NodePath("../../Player/PuStar"), NodePath("../../Player/PuTinSoldier"), NodePath("../../Player/PuHorse"), NodePath("../../Player/PuCookie")]
-
-[node name="JoyLevelLabel" type="Label" parent="UILayer"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -245.5
-offset_top = -72.5
-offset_right = 245.5
-offset_bottom = 72.5
+[node name="MarginContainer" type="MarginContainer" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PowerupSelection" parent="UILayer/MarginContainer" node_paths=PackedStringArray("powerups") instance=ExtResource("8_18nlu")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+powerups = [NodePath("../../../Player/PuCandyCane"), NodePath("../../../Player/PuNutCracker"), NodePath("../../../Player/PuStar"), NodePath("../../../Player/PuTinSoldier"), NodePath("../../../Player/PuHorse"), NodePath("../../../Player/PuCookie")]
+
+[node name="JoyLevelLabel" type="Label" parent="UILayer/MarginContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 text = "Joy Level 1"
 label_settings = SubResource("LabelSettings_18nlu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UILayer/JoyLevelLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UILayer/MarginContainer/JoyLevelLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_e1cbu")
 }
 
-[node name="PresentArrow" type="Sprite2D" parent="UILayer" node_paths=PackedStringArray("player", "present")]
+[node name="PresentArrow" type="Sprite2D" parent="UILayer/MarginContainer" node_paths=PackedStringArray("player", "present")]
 position = Vector2(227, 82)
 texture = ExtResource("14_si52b")
 script = ExtResource("15_01n6w")
-player = NodePath("../../Player")
-present = NodePath("../../Present")
+player = NodePath("../../../Player")
+present = NodePath("../../../Present")
 
-[node name="XPLabel" type="Label" parent="UILayer"]
+[node name="XPLabel" type="Label" parent="UILayer/MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 0)
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_adb74")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_58gk3")
 text = "XP: 0/30"
 label_settings = SubResource("LabelSettings_to7gp")
 horizontal_alignment = 2
 
-[node name="PowerupTray" parent="UILayer" instance=ExtResource("27_k67gn")]
+[node name="PowerupTray" parent="UILayer/MarginContainer" instance=ExtResource("27_k67gn")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="GameOverScreen" parent="UILayer" instance=ExtResource("28_k3g67")]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
 
 [node name="JoyTimer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
 
 [connection signal="collected" from="Present" to="." method="_on_present_collected"]
-[connection signal="collected" from="Present" to="UILayer/PresentArrow" method="_on_present_collected"]
-[connection signal="teleported" from="Present" to="UILayer/PresentArrow" method="_on_present_teleported"]
+[connection signal="collected" from="Present" to="UILayer/MarginContainer/PresentArrow" method="_on_present_collected"]
+[connection signal="teleported" from="Present" to="UILayer/MarginContainer/PresentArrow" method="_on_present_teleported"]
+[connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="level_up" from="Player" to="." method="_on_player_level_up"]
 [connection signal="xp_collected" from="Player" to="." method="_on_player_xp_collected"]
-[connection signal="powerup_selected" from="UILayer/PowerupSelection" to="." method="_on_powerup_selection_powerup_selected"]
+[connection signal="powerup_selected" from="UILayer/MarginContainer/PowerupSelection" to="." method="_on_powerup_selection_powerup_selected"]
 [connection signal="timeout" from="JoyTimer" to="." method="_on_timer_timeout"]

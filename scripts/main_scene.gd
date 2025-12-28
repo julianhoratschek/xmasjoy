@@ -6,17 +6,12 @@ Top-level assignments are made here
 """
 
 # TODO:
-# - Fix bites
-# - Pause/Options screen
-# - game over
-# - List of powerups
+# - Crossheir
 # - OOB management
 # - Player and threatlevel
 # - UI for timekeeping?
 # - Savefile
 # - Structures
-
-@onready var powerup_selection := $UILayer/PowerupSelection
 
 ## Maximum level for enemy spawners
 const max_threat_level = 19
@@ -32,7 +27,6 @@ var threat_levels: Dictionary = JSON.parse_string(
 
 
 ## Set spawner values according to current threat-level
-# TODO: hardwire these?
 func update_spawners() -> void:
 	var spawners = $Spawners
 
@@ -47,7 +41,7 @@ func update_spawners() -> void:
 
 # Set static variables to point at player
 func _ready() -> void:
-	var joy_level_label = $UILayer/JoyLevelLabel
+	var joy_level_label = %JoyLevelLabel
 	joy_level_label.pivot_offset = joy_level_label.size / 2
 
 	Enemy.player = $Player
@@ -55,27 +49,37 @@ func _ready() -> void:
 	update_spawners()
 
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_ESCAPE and event.is_pressed():
+			%GameOverScreen.activate_screen(GameOverScreen.ScreenType.PauseScreen)
+
+
 # Bubbled up from PowerupSelection-UI
 func _on_powerup_selection_powerup_selected(powerup: Powerup) -> void:
 	$Player.add_powerup(powerup)
-	$UILayer/PowerupTray.add_powerup(powerup)
+	%PowerupTray.add_powerup(powerup)
 
 
 ## Called when a present is collected
 func _on_present_collected() -> void:
-	powerup_selection.show()
+	%PowerupSelection.show()
 
 
 ## Show PowerupSelection-UI on level-up
 func _on_player_level_up() -> void:
-	powerup_selection.show()
+	%PowerupSelection.show()
 
 
 ## Update label when xp is collected
 func _on_player_xp_collected() -> void:
-	$UILayer/XPLabel.text = "XP: %d / %d" % [
+	%XPLabel.text = "XP: %d / %d" % [
 		$Player.xp, 
 		$Player.next_level_xp]
+
+
+func _on_player_dead() -> void:
+	%GameOverScreen.activate_screen(GameOverScreen.ScreenType.GameOverScreen)
 
 
 ## Increase threat-level periodically
@@ -86,8 +90,8 @@ func _on_timer_timeout() -> void:
 
 	current_threat += 1
 
-	var label = $UILayer/JoyLevelLabel
+	var label = %JoyLevelLabel
 	label.text = "Joy Level %d" % current_threat
-	$UILayer/JoyLevelLabel/AnimationPlayer.play("fade_in_out")
+	%JoyLevelLabel/AnimationPlayer.play("fade_in_out")
 
 	update_spawners()
