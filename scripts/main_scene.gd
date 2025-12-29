@@ -6,7 +6,6 @@ Top-level assignments are made here
 """
 
 # TODO:
-# - OOB management
 # - Player and threatlevel
 # - UI for timekeeping?
 # - Savefile
@@ -77,6 +76,7 @@ func _on_player_xp_collected() -> void:
 		$Player.next_level_xp]
 
 
+## Called, when player dies
 func _on_player_dead() -> void:
 	%GameOverScreen.activate_screen(GameOverScreen.ScreenType.GameOverScreen)
 

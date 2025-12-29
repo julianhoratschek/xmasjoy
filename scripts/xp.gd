@@ -10,8 +10,10 @@ XP-Collectables
 ## Amount of xp received when picking this instance up
 var amount := 0
 
+## How fast does the xp float towards player?
 var _speed := 100
 
+## Currently floating towards player?
 var move_to_player := false
 
 
@@ -31,6 +33,7 @@ func collect() -> void:
 	$ScoreLabel/AnimationPlayer.play("fade")
 
 
+## Move xp ball towards player, when move_to_player is true
 func _process(delta: float) -> void:
 	if !move_to_player:
 		return

@@ -14,7 +14,7 @@ signal level_up()
 ## Emitted then player collects xp
 signal xp_collected()
 
-
+## Emitted when health reached 0
 signal dead()
 
 
@@ -33,6 +33,7 @@ var xp := 0
 ## How much XP do we need for the next level?
 var next_level_xp := 30
 
+## Current player level
 var current_level := 0
 
 ## Counter for invicibility frames
@@ -109,6 +110,7 @@ func _on_hit_area_entered(area: Area2D) -> void:
 		xp += body.amount
 		body.collect()
 
+		# Level-curve
 		if xp >= next_level_xp:
 			var next_level := current_level + 1
 			next_level_xp = 15 * next_level ** 2 + 50 * next_level + 0
@@ -118,6 +120,7 @@ func _on_hit_area_entered(area: Area2D) -> void:
 		xp_collected.emit()
 
 
+## Starts xp-float towards player
 func _on_collection_area_entered(area: Area2D) -> void:
 	var body = area.get_parent()
 
@@ -125,6 +128,7 @@ func _on_collection_area_entered(area: Area2D) -> void:
 		body.move_to_player = true
 
 
+## Lets xp stop floating to player
 func _on_collection_area_exited(area: Area2D) -> void:
 	var body = area.get_parent()
 
@@ -132,6 +136,7 @@ func _on_collection_area_exited(area: Area2D) -> void:
 		body.move_to_player = false
 
 
+## Fade-out speech label from beginning
 func _on_speech_finished() -> void:
 	var tween := create_tween().tween_property(
 		$SpeechLabel,

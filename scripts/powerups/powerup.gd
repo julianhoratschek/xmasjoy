@@ -5,7 +5,7 @@ class_name Powerup extends Node
 Base class for all Powerups
 """
 
-
+## Emitted when powerup is leveled up
 signal leveled_up(new_level: int)
 
 ## Global modifier for damage
