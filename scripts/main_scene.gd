@@ -6,7 +6,6 @@ Top-level assignments are made here
 """
 
 # TODO:
-# - Crossheir
 # - OOB management
 # - Player and threatlevel
 # - UI for timekeeping?
